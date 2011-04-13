@@ -1,0 +1,33 @@
+<h2>Unread Comments</h2>
+
+<div id="comments">
+  <% @comments.group_by(&:post).each do |post, comments| %>
+    <ul class="list">
+      <li class="header">Comments for <strong><%= post.title %></strong></li>
+
+      <% comments.each do |comment| %>
+        <%= content_tag_for :li, comment, :class => cycle(:odd, :even) do %>
+          <blockquote>
+            <%= link_to simple_format(%[" #{h(comment.body)} "]), [:admin, post, :comments] %>
+          </blockquote>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<br/>
+
+<h2>Pending Inquiries</h2>
+
+<div id="inquiries">
+  <ul class="list">
+    <% @inquiries.each do |inquiry| %>
+      <%= content_tag_for :li, inquiry, :class => cycle(:odd, :even) do %>
+        <%= link_to [:admin, inquiry] do %>
+          <strong><%= inquiry.name %></strong>, <%= inquiry.subject %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

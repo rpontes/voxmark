@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>Producer</title>
+  <link href="/Users/daniel/producer/public/stylesheets/application.css?1300974045" media="screen" rel="stylesheet" type="text/css" />
+<link href="/Users/daniel/producer/public/stylesheets/scaffold.css?1301351217" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/Users/daniel/producer/public/javascripts/vendor/jquery.js?1291240578" type="text/javascript"></script>
+<script src="/Users/daniel/producer/public/javascripts/vendor/jquery-ui.js?1291240578" type="text/javascript"></script>
+<script src="/Users/daniel/producer/public/javascripts/rails.js?1291240578" type="text/javascript"></script>
+  
+</head>
+<body>
+
+  <div id="wrapper">
+    <div id="header">
+      <div id="logo">
+        <img alt="Logo_header" class="middle" src="/Users/daniel/producer/public/images/logo_header.png?1290171486" />
+      </div>
+
+      <div id="main-nav">
+        <ul>
+          <li><a href="/">
+            HOME <br/><span>DISCOVER OUR <br/> AWESOME PRODUCT</span>
+</a></li>
+          <li><a href="/tour">
+            TOUR <br/><span>DISCOVER WHY IT'LL <br/> MAKE YOUR LIFE BETTER</span>
+</a></li>
+          <li><a href="/posts">
+            BLOG <br/><span>NEWS, TIPS AND OUR <br/> RANDOM THOUGHTS</span>
+</a></li>
+          <li class="current"><a href="/contact/new">
+            CONTACT <br/><span>YOU'RE NOT ALONE <br/> GET IN TOUCH</span>
+</a></li>
+          <li><a href="#">
+            PRICE <br/><span>SMALL AMOUNT <br/> FOR A BIG BENEFIT</span>
+</a></li></ul>      </div>
+    </div>
+
+    <div id="content">
+      
+      <form accept-charset="UTF-8" action="/contact" class="new_inquiry" id="new_inquiry" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <div id="error_explanation">
+    <h2><span class="translation_missing">en, activerecord, errors, template, header</span></h2>
+
+    <ul>
+      <li>Email is invalid</li>
+      <li>Email can't be blank</li>
+      <li>Name can't be blank</li>
+      <li>Message can't be blank</li>
+    </ul>
+  </div>
+
+
+  <div class="field">
+    <select id="inquiry_subject" name="inquiry[subject]"><option value="billing" selected="selected">I have a billing question</option>
+<option value="signup">I have a question before I sign up</option>
+<option value="broken">I think something is broken</option>
+<option value="request">I want to request a feature</option>
+<option value="confused">I'm confused about how something works</option>
+<option value="other">Other</option></select>
+  </div>
+
+  <div class="field">
+    <div class="field_with_errors"><input id="inquiry_name" name="inquiry[name]" placeholder="your name" size="30" type="text" value="" /></div>
+  </div>
+
+  <div class="field">
+    <div class="field_with_errors"><input id="inquiry_email" name="inquiry[email]" placeholder="email" size="30" type="text" value="" /></div>
+  </div>
+
+  <div class="field">
+    <div class="field_with_errors"><textarea cols="40" id="inquiry_message" name="inquiry[message]" placeholder="Explain the problem/question in detail" rows="20"></textarea></div>
+  </div>
+  
+  <input id="inquiry_nickname" name="inquiry[nickname]" size="30" style="display:none;" type="text" value="" />
+    
+  <p><input class="button" id="inquiry_submit" name="commit" type="submit" value="Send Message" /></p>
+</form>
+    </div>
+
+    <div id="footer">
+      <div id="footer-nav">
+        <ul>
+          <li><a>HOME</a></li>
+          <li><a>TOUR</a></li>
+          <li><a>BLOG</a></li>
+          <li><a>FAQ</a></li>
+          <li><a>CONTACT</a></li>
+          <li><a>PRICE</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

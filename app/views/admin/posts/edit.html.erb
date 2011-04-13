@@ -1,0 +1,7 @@
+<h2>
+  <%=t ".title" %>
+  <%= link_to 'Preview', [:admin, @post], 
+        :class => "button right", :target => "_blank" %>
+</h2>
+
+<%= render 'form' %>

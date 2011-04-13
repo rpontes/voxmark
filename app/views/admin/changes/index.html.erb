@@ -1,0 +1,25 @@
+<h2>Changelog</h2>
+
+<ul class="list">
+  <% @changes.each do |change| %>
+    <%= content_tag_for :li, change, :class => cycle(:odd, :even) do %>
+
+      <strong><%= change.category %> - </strong> 
+      <%= change.entry %>
+      <span class="hint"><%=l change.released_on %></span>
+
+      <div class="right">
+        <%= link_to_edit [:edit, :admin, change] %>
+        <%= link_to_destroy [:admin, change] %>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
+
+<hr class="thick" />
+
+<div class="bar">
+  <div class="right">
+    <%= link_to "New entry", new_admin_change_path, :class => "button" %>
+  </div>
+</div>

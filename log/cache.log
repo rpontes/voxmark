@@ -1,0 +1,920 @@
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (19.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateUsers (20110317230504)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar(255), "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110317230504')[0m
+Migrating to CreatePosts (20110317235426)
+  [1m[35mSQL (0.6ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "excerpt" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110317235426')[0m
+Migrating to CreateComments (20110321230843)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "author" varchar(255), "email" varchar(255), "url" varchar(255), "body" text, "post_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110321230843')[0m
+Migrating to ChangeExcerptInPosts (20110321233243)
+  [1m[35mSQL (0.6ms)[0m  CREATE TEMPORARY TABLE "altered_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "excerpt" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.4ms)[0m  DROP TABLE "posts"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "excerpt" text(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_posts")
+  [1m[36mSQL (0.5ms)[0m  [1mDROP TABLE "altered_posts"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110321233243')
+Migrating to AddAuthorIdToPost (20110322000535)
+  [1m[36mSQL (15.9ms)[0m  [1mALTER TABLE "posts" ADD "author_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110322000535')
+Migrating to CreateCategories (20110322001948)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110322001948')
+Migrating to CreateCategoriesPosts (20110322002148)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE "categories_posts" ("post_id" integer NOT NULL, "category_id" integer NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110322002148')[0m
+Migrating to AddDraftAndPermalinkToPost (20110323225057)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "posts" ADD "draft" boolean
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "posts" ADD "permalink" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110323225057')
+Migrating to AddPublishedAtToPost (20110323235251)
+  [1m[36mSQL (0.7ms)[0m  [1mALTER TABLE "posts" ADD "published_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110323235251')
+Migrating to RenamePermalinkToSlugInPost (20110323235608)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "excerpt" text(255), "body" text, "created_at" datetime, "updated_at" datetime, "author_id" integer, "draft" boolean, "slug" varchar(255), "published_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("posts")
+  [1m[36mSQL (0.5ms)[0m  [1mDROP TABLE "posts"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "excerpt" text(255), "body" text, "created_at" datetime, "updated_at" datetime, "author_id" integer, "draft" boolean, "slug" varchar(255), "published_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_posts")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_posts"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110323235608')[0m
+Migrating to CreateAssets (20110328222652)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110328222652')[0m
+Migrating to AddAttachmentDocumentToAsset (20110328222747)
+  [1m[35mSQL (0.7ms)[0m  ALTER TABLE "assets" ADD "document_file_name" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mALTER TABLE "assets" ADD "document_content_type" varchar(255)[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "assets" ADD "document_file_size" integer
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "assets" ADD "document_updated_at" datetime[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110328222747')
+Migrating to CreateInquiries (20110330222325)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "inquiries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "name" varchar(255), "message" text, "subject" varchar(255), "open" boolean DEFAULT 't', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110330222325')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("assets")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories_posts")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("inquiries")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'admin@cursorails.net') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "current_sign_in_at", "current_sign_in_ip", "last_sign_in_at", "last_sign_in_ip", "reset_password_token", "created_at", "updated_at", "remember_created_at", "full_name", "sign_in_count") VALUES ('admin@cursorails.net', '$2a$10$SpdyYcmWLWZa4h87x82GPON.Ail6PXmss8WIW8xsOdxoJsKetiu4W', NULL, NULL, NULL, NULL, NULL, '2011-04-04 22:24:26.408111', '2011-04-04 22:24:26.408111', NULL, 'Site Admin', 0)[0m
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-15jme0g-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-15jme0g-0.png[0]' -resize "x300" -crop "300x300+75+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-15jme0g-020110404-13677-143y4ly-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-15jme0g-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-15jme0g-0.png[0]' -resize "x50" -crop "50x50+12+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-15jme0g-020110404-13677-16bwqnc-0' 2>/dev/null
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:27.682397', 'asset1.png', '2011-04-04 22:24:26.457280', 280510, '2011-04-04 22:24:27.682397', NULL, 'Image 1', 'image/png')
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/1/medium/asset1.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/1/original/asset1.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/1/thumb/asset1.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-10jg3z8-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-10jg3z8-0.png[0]' -resize "x300" -crop "300x300+74+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-10jg3z8-020110404-13677-17bnthu-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-10jg3z8-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-10jg3z8-0.png[0]' -resize "x50" -crop "50x50+12+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-10jg3z8-020110404-13677-1ykea6m-0' 2>/dev/null
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:28.031809', 'asset2.png', '2011-04-04 22:24:27.819197', 507930, '2011-04-04 22:24:28.031809', NULL, 'Image 2', 'image/png')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/2/medium/asset2.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/2/original/asset2.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/2/thumb/asset2.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1p7nf51-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1p7nf51-0.png[0]' -resize "x300" -crop "300x300+77+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1p7nf51-020110404-13677-ixtmet-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1p7nf51-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1p7nf51-0.png[0]' -resize "x50" -crop "50x50+12+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1p7nf51-020110404-13677-17j9p7v-0' 2>/dev/null
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:28.323105', 'asset3.png', '2011-04-04 22:24:28.051812', 419287, '2011-04-04 22:24:28.323105', NULL, 'Image 3', 'image/png')
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/3/medium/asset3.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/3/original/asset3.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/3/thumb/asset3.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1gqm30l-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1gqm30l-0.png[0]' -resize "x300" -crop "300x300+73+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1gqm30l-020110404-13677-1rzx92e-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1gqm30l-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1gqm30l-0.png[0]' -resize "x50" -crop "50x50+12+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1gqm30l-020110404-13677-1roicyq-0' 2>/dev/null
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:28.651728', 'asset4.png', '2011-04-04 22:24:28.445743', 704885, '2011-04-04 22:24:28.651728', NULL, 'Image 4', 'image/png')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/4/medium/asset4.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/4/original/asset4.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/4/thumb/asset4.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-18fp203-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-18fp203-0.png[0]' -resize "x300" -crop "300x300+87+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-18fp203-020110404-13677-14w5eah-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-18fp203-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-18fp203-0.png[0]' -resize "x50" -crop "50x50+14+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-18fp203-020110404-13677-qrf8nt-0' 2>/dev/null
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:29.391174', 'asset5.png', '2011-04-04 22:24:28.685009', 341297, '2011-04-04 22:24:29.391174', NULL, 'Image 5', 'image/png')
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/5/medium/asset5.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/5/original/asset5.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/5/thumb/asset5.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1ppzmlf-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1ppzmlf-0.png[0]' -resize "x300" -crop "300x300+75+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1ppzmlf-020110404-13677-qhsw91-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1ppzmlf-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1ppzmlf-0.png[0]' -resize "x50" -crop "50x50+12+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1ppzmlf-020110404-13677-1ihaudr-0' 2>/dev/null
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:29.663007', 'asset6.png', '2011-04-04 22:24:29.409848', 443972, '2011-04-04 22:24:29.663007', NULL, 'Image 6', 'image/png')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/6/medium/asset6.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/6/original/asset6.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/6/thumb/asset6.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-ujgdd0-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-ujgdd0-0.png[0]' -resize "x300" -crop "300x300+75+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-ujgdd0-020110404-13677-1mlv0n4-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-ujgdd0-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-ujgdd0-0.png[0]' -resize "x50" -crop "50x50+12+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-ujgdd0-020110404-13677-1d6swxi-0' 2>/dev/null
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:29.934217', 'asset7.png', '2011-04-04 22:24:29.725401', 630321, '2011-04-04 22:24:29.934217', NULL, 'Image 7', 'image/png')
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/7/medium/asset7.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/7/original/asset7.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/7/thumb/asset7.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1btnbux-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1btnbux-0.png[0]' -resize "300x" -crop "300x300+0+3" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1btnbux-020110404-13677-3s2opu-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1btnbux-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1btnbux-0.png[0]' -resize "50x" -crop "50x50+0+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1btnbux-020110404-13677-c4lkm-0' 2>/dev/null
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:30.172258', 'asset8.png', '2011-04-04 22:24:29.952111', 354007, '2011-04-04 22:24:30.172258', NULL, 'Image 8', 'image/png')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/8/medium/asset8.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/8/original/asset8.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/8/thumb/asset8.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-8vt6uk-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-8vt6uk-0.png[0]' -resize "x300" -crop "300x300+7+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-8vt6uk-020110404-13677-1hboa5u-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-8vt6uk-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-8vt6uk-0.png[0]' -resize "x50" -crop "50x50+1+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-8vt6uk-020110404-13677-18dcqdj-0' 2>/dev/null
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:30.486860', 'asset9.png', '2011-04-04 22:24:30.236780', 715184, '2011-04-04 22:24:30.486860', NULL, 'Image 9', 'image/png')
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/medium/asset9.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/original/asset9.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/thumb/asset9.png
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1f79uzn-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1f79uzn-0.png[0]' -resize "x300" -crop "300x300+65+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1f79uzn-020110404-13677-y6q13e-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1f79uzn-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1f79uzn-0.png[0]' -resize "x50" -crop "50x50+10+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13677-1f79uzn-020110404-13677-1a40v48-0' 2>/dev/null
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "assets" ("updated_at", "document_file_name", "document_updated_at", "document_file_size", "created_at", "description", "title", "document_content_type") VALUES ('2011-04-04 22:24:30.892436', 'asset10.png', '2011-04-04 22:24:30.665272', 530543, '2011-04-04 22:24:30.892436', NULL, 'Image 10', 'image/png')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/daniel/producer/public/system/documents/10/medium/asset10.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/10/original/asset10.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/10/thumb/asset10.png
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.961907', '2011-04-04 22:24:30.961907', 'Rails')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.963997', '2011-04-04 22:24:30.963997', 'Ruby')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.964944', '2011-04-04 22:24:30.964944', 'Agile')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.965809', '2011-04-04 22:24:30.965809', 'Metaprogramming')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.966692', '2011-04-04 22:24:30.966692', 'Design')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.967710', '2011-04-04 22:24:30.967710', 'TDD')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "categories" ("updated_at", "created_at", "name") VALUES ('2011-04-04 22:24:30.968853', '2011-04-04 22:24:30.968853', 'BDD')
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" ORDER BY categories.id DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'rails-3-0-rc') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'admin@cursorails.net') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("body", "updated_at", "author_id", "excerpt", "created_at", "published_at", "slug", "draft", "title") VALUES ('
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-04-04 22:24:31.264322', 1, '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-04-04 22:24:31.264322', '2011-04-04 22:24:31.014488', 'rails-3-0-rc', 'f', 'Rails 3.0 RC')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories_posts" ("category_id", "post_id") VALUES (1, 1)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories_posts" ("category_id", "post_id") VALUES (7, 1)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:25:57 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 53ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:26:08 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tour" for 127.0.0.1 at Mon Apr 04 19:26:09 -0300 2011
+  Processing by PagesController#tour as HTML
+Rendered pages/tour.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 41ms (Views: 40.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tour" for 127.0.0.1 at Mon Apr 04 19:26:38 -0300 2011
+  Processing by PagesController#tour as HTML
+Rendered pages/tour.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/prices" for 127.0.0.1 at Mon Apr 04 19:26:39 -0300 2011
+  Processing by PagesController#prices as HTML
+Rendered pages/prices.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:26:45 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:27:17 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 2010ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:28:16 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tour" for 127.0.0.1 at Mon Apr 04 19:28:18 -0300 2011
+  Processing by PagesController#tour as HTML
+Rendered pages/tour.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/prices" for 127.0.0.1 at Mon Apr 04 19:28:19 -0300 2011
+  Processing by PagesController#prices as HTML
+Rendered pages/prices.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:28:21 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Apr 04 19:28:55 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (5.2ms)
+Write page /Users/daniel/producer/public/index.html (0.5ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tour" for 127.0.0.1 at Mon Apr 04 19:29:02 -0300 2011
+  Processing by PagesController#tour as HTML
+Rendered pages/tour.html.erb within layouts/application (4.7ms)
+Write page /Users/daniel/producer/public/tour.html (0.6ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/prices" for 127.0.0.1 at Mon Apr 04 19:29:04 -0300 2011
+  Processing by PagesController#prices as HTML
+Rendered pages/prices.html.erb within layouts/application (3.5ms)
+Write page /Users/daniel/producer/public/prices.html (0.5ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:36:11 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+Completed   in 11ms
+
+
+Started GET "/admin/users/sign_in" for 127.0.0.1 at Mon Apr 04 19:36:11 -0300 2011
+  Processing by Admin::SessionsController#new as HTML
+Rendered admin/sessions/new.html.erb within layouts/admin (5.6ms)
+Completed 200 OK in 52ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/users/sign_in" for 127.0.0.1 at Mon Apr 04 19:36:23 -0300 2011
+  Processing by Admin::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"+M6MsafSXQlYcUi5uIQyDOUWF06rrJaJFs4dAzRDTKQ=", "utf8"=>"\342\234\223", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"admin@cursorails.net"}}
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'admin@cursorails.net' LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-04-04 22:36:24.005274', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_at" = '2011-04-04 22:36:24.004584', "sign_in_count" = 1, "last_sign_in_at" = '2011-04-04 22:36:24.004584' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/admin/posts
+Completed 302 Found in 187ms
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:36:24 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered admin/posts/index.html.erb within layouts/admin (16.9ms)
+Completed 200 OK in 191ms (Views: 40.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/posts/1-rails-3-0-rc/edit" for 127.0.0.1 at Mon Apr 04 19:36:58 -0300 2011
+  Processing by Admin::PostsController#edit as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mAsset Load (0.7ms)[0m  [1mSELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "assets"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (0.7ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 1 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 2 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 3 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 4 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 5 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 6 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 7 AND ("categories_posts".post_id = 1 ) LIMIT 1
+Rendered admin/posts/_asset.html.erb (8.3ms)
+Rendered admin/posts/_form.html.erb (63.5ms)
+Rendered admin/posts/edit.html.erb within layouts/admin (86.8ms)
+Completed 200 OK in 166ms (Views: 111.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin/posts/1-rails-3-0-rc" for 127.0.0.1 at Mon Apr 04 19:37:01 -0300 2011
+  Processing by Admin::PostsController#show as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1
+Rendered admin/posts/show.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 204ms (Views: 64.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:37:23 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Read fragment views/localhost:3000/admin/posts (0.2ms)
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/posts/index.html.erb within layouts/admin (13.1ms)
+Write fragment views/localhost:3000/admin/posts (2.3ms)
+Completed 200 OK in 57ms (Views: 19.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:37:25 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Read fragment views/localhost:3000/admin/posts (0.3ms)
+Completed 200 OK in 21ms
+
+
+Started GET "/admin/posts.xml" for 127.0.0.1 at Mon Apr 04 19:40:22 -0300 2011
+  Processing by Admin::PostsController#index as XML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Read fragment views/localhost:3000/admin/posts.xml (0.2ms)
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Write fragment views/localhost:3000/admin/posts.xml (2.5ms)
+Completed 200 OK in 265ms (Views: 114.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/posts.xml" for 127.0.0.1 at Mon Apr 04 19:40:34 -0300 2011
+  Processing by Admin::PostsController#index as XML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Read fragment views/localhost:3000/admin/posts.xml (0.3ms)
+Completed 200 OK in 22ms
+
+
+Started GET "/admin/posts.xml" for 127.0.0.1 at Mon Apr 04 19:40:34 -0300 2011
+  Processing by Admin::PostsController#index as XML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Read fragment views/localhost:3000/admin/posts.xml (0.3ms)
+Completed 200 OK in 23ms
+
+
+Started GET "/admin/users/sign_out" for 127.0.0.1 at Mon Apr 04 19:43:09 -0300 2011
+  Processing by Admin::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 50ms
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:43:13 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+Completed   in 11ms
+
+
+Started GET "/admin/users/sign_in" for 127.0.0.1 at Mon Apr 04 19:43:13 -0300 2011
+  Processing by Admin::SessionsController#new as HTML
+Rendered admin/sessions/new.html.erb within layouts/admin (6.3ms)
+Completed 200 OK in 35ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/admin/users/sign_in" for 127.0.0.1 at Mon Apr 04 19:43:16 -0300 2011
+  Processing by Admin::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"joao@example.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'joao@example.com' LIMIT 1[0m
+Completed   in 12ms
+  Processing by Admin::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"joao@example.com"}}
+Rendered admin/sessions/new.html.erb within layouts/admin (5.5ms)
+Completed 200 OK in 108ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/admin/users/sign_in" for 127.0.0.1 at Mon Apr 04 19:43:25 -0300 2011
+  Processing by Admin::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"admin@cursorails.net"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'admin@cursorails.net' LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-04-04 22:43:25.430508', "sign_in_count" = 2, "current_sign_in_at" = '2011-04-04 22:43:25.429857' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/admin/posts
+Completed 302 Found in 116ms
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:43:25 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Read fragment views/localhost:3000/admin/posts (0.3ms)
+Completed 200 OK in 128ms
+
+
+Started GET "/admin/assets" for 127.0.0.1 at Mon Apr 04 19:44:39 -0300 2011
+  Processing by Admin::AssetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.6ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/assets/index.html.erb within layouts/admin (40.8ms)
+Completed 200 OK in 81ms (Views: 49.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/assets/10/edit" for 127.0.0.1 at Mon Apr 04 19:44:55 -0300 2011
+  Processing by Admin::AssetsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.2ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 10 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered admin/assets/_form.html.erb (12.7ms)
+Rendered admin/assets/edit.html.erb within layouts/admin (32.5ms)
+Completed 200 OK in 88ms (Views: 56.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/assets" for 127.0.0.1 at Mon Apr 04 19:44:56 -0300 2011
+  Processing by Admin::AssetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.6ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/assets/index.html.erb within layouts/admin (43.7ms)
+Completed 200 OK in 77ms (Views: 48.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/assets/9/edit" for 127.0.0.1 at Mon Apr 04 19:44:59 -0300 2011
+  Processing by Admin::AssetsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered admin/assets/_form.html.erb (8.8ms)
+Rendered admin/assets/edit.html.erb within layouts/admin (13.3ms)
+Completed 200 OK in 49ms (Views: 18.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/assets/9/edit" for 127.0.0.1 at Mon Apr 04 19:45:01 -0300 2011
+  Processing by Admin::AssetsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered admin/assets/_form.html.erb (9.5ms)
+Rendered admin/assets/edit.html.erb within layouts/admin (14.9ms)
+Completed 200 OK in 49ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/assets" for 127.0.0.1 at Mon Apr 04 19:45:03 -0300 2011
+  Processing by Admin::AssetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.6ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/assets/index.html.erb within layouts/admin (39.4ms)
+Completed 200 OK in 75ms (Views: 44.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/assets/5/edit" for 127.0.0.1 at Mon Apr 04 19:45:08 -0300 2011
+  Processing by Admin::AssetsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 5 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered admin/assets/_form.html.erb (8.9ms)
+Rendered admin/assets/edit.html.erb within layouts/admin (13.6ms)
+Completed 200 OK in 47ms (Views: 18.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/assets" for 127.0.0.1 at Mon Apr 04 19:45:09 -0300 2011
+  Processing by Admin::AssetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.8ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/assets/index.html.erb within layouts/admin (43.9ms)
+Completed 200 OK in 182ms (Views: 49.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:45:10 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Rendered admin/assets/show.html.erb within layouts/admin (11.7ms)
+Completed 200 OK in 59ms (Views: 29.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:45:49 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.2ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Exist fragment? views/localhost:3000/admin/assets/9 (0.3ms)
+Write fragment views/localhost:3000/admin/assets/9 (4.3ms)
+Rendered admin/assets/show.html.erb within layouts/admin (23.3ms)
+Completed 200 OK in 56ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/assets/9/edit" for 127.0.0.1 at Mon Apr 04 19:45:52 -0300 2011
+  Processing by Admin::AssetsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.2ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered admin/assets/_form.html.erb (9.7ms)
+Rendered admin/assets/edit.html.erb within layouts/admin (16.4ms)
+Completed 200 OK in 49ms (Views: 21.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:46:09 -0300 2011
+  Processing by Admin::AssetsController#update as HTML
+  Parameters: {"commit"=>"Update Asset", "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "id"=>"9", "asset"=>{"title"=>"Image 9", "document"=>#<ActionDispatch::Http::UploadedFile:0x103d5a120 @headers="Content-Disposition: form-data; name=\"asset[document]\"; filename=\"gauges_sans_window.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg", @original_filename="gauges_sans_window.jpg", @tempfile=#<File:/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/RackMultipart20110404-13775-aegsl3-0>>}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-1pddgew-0.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-1pddgew-0.jpg[0]' -resize "x50" -crop "50x50+5+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-1pddgew-020110404-13775-1pypvmj-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-1pddgew-0.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-1pddgew-0.jpg[0]' -resize "x300" -crop "300x300+33+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-1pddgew-020110404-13775-1dtb326-0' 2>/dev/null
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "assets" SET "document_updated_at" = '2011-04-04 22:46:09.336166', "updated_at" = '2011-04-04 22:46:09.619306', "document_file_size" = 72951, "document_file_name" = 'gauges_sans_window.jpg', "document_content_type" = 'image/jpeg' WHERE "assets"."id" = 9[0m
+[paperclip] Saving attachments.
+[paperclip] deleting /Users/daniel/producer/public/system/documents/9/original/asset9.png
+[paperclip] deleting /Users/daniel/producer/public/system/documents/9/thumb/asset9.png
+[paperclip] deleting /Users/daniel/producer/public/system/documents/9/medium/asset9.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/thumb/gauges_sans_window.jpg
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/original/gauges_sans_window.jpg
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/medium/gauges_sans_window.jpg
+Redirected to http://localhost:3000/admin/assets/9
+Completed 302 Found in 360ms
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:46:09 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAsset Load (0.2ms)[0m  [1mSELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1[0m
+Exist fragment? views/localhost:3000/admin/assets/9 (0.3ms)
+Read fragment views/localhost:3000/admin/assets/9 (0.0ms)
+Rendered admin/assets/show.html.erb within layouts/admin (11.8ms)
+Completed 200 OK in 52ms (Views: 17.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:26 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAsset Load (0.3ms)[0m  [1mSELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1[0m
+Exist fragment? views/assets/9-20110404224609 (0.3ms)
+Write fragment views/assets/9-20110404224609 (4.1ms)
+Rendered admin/assets/show.html.erb within layouts/admin (19.6ms)
+Completed 200 OK in 64ms (Views: 26.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/assets/9/edit" for 127.0.0.1 at Mon Apr 04 19:48:32 -0300 2011
+  Processing by Admin::AssetsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAsset Load (0.2ms)[0m  [1mSELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered admin/assets/_form.html.erb (8.5ms)
+Rendered admin/assets/edit.html.erb within layouts/admin (13.1ms)
+Completed 200 OK in 47ms (Views: 17.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:40 -0300 2011
+  Processing by Admin::AssetsController#update as HTML
+  Parameters: {"commit"=>"Update Asset", "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "id"=>"9", "asset"=>{"title"=>"Image 9", "document"=>#<ActionDispatch::Http::UploadedFile:0x10396d558 @headers="Content-Disposition: form-data; name=\"asset[document]\"; filename=\"shot_1298636695.png\"\r\nContent-Type: image/png\r\n", @content_type="image/png", @original_filename="shot_1298636695.png", @tempfile=#<File:/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/RackMultipart20110404-13775-1ws87dd-0>>}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAsset Load (0.2ms)[0m  [1mSELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1[0m
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-nm4wc6-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-nm4wc6-0.png[0]' -resize "x50" -crop "50x50+8+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-nm4wc6-020110404-13775-cbumfg-0' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-nm4wc6-0.png[0]' 2>/dev/null
+[paperclip] convert '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-nm4wc6-0.png[0]' -resize "x300" -crop "300x300+50+0" +repage '/var/folders/af/afTgR9ARHzqckN2HeH5Q5E+++TI/-Tmp-/stream20110404-13775-nm4wc6-020110404-13775-1p6tyzt-0' 2>/dev/null
+  [1m[35mAREL (0.6ms)[0m  UPDATE "assets" SET "document_content_type" = 'image/png', "document_file_name" = 'shot_1298636695.png', "updated_at" = '2011-04-04 22:48:41.247026', "document_updated_at" = '2011-04-04 22:48:41.018549', "document_file_size" = 165844 WHERE "assets"."id" = 9
+[paperclip] Saving attachments.
+[paperclip] deleting /Users/daniel/producer/public/system/documents/9/original/gauges_sans_window.jpg
+[paperclip] deleting /Users/daniel/producer/public/system/documents/9/thumb/gauges_sans_window.jpg
+[paperclip] deleting /Users/daniel/producer/public/system/documents/9/medium/gauges_sans_window.jpg
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/thumb/shot_1298636695.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/original/shot_1298636695.png
+[paperclip] saving /Users/daniel/producer/public/system/documents/9/medium/shot_1298636695.png
+Redirected to http://localhost:3000/admin/assets/9
+Completed 302 Found in 403ms
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:41 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Exist fragment? views/assets/9-20110404224841 (0.4ms)
+Write fragment views/assets/9-20110404224841 (4.6ms)
+Rendered admin/assets/show.html.erb within layouts/admin (23.0ms)
+Completed 200 OK in 74ms (Views: 29.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:47 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Exist fragment? views/assets/9-20110404224841 (0.3ms)
+Read fragment views/assets/9-20110404224841 (0.1ms)
+Rendered admin/assets/show.html.erb within layouts/admin (13.5ms)
+Completed 200 OK in 52ms (Views: 18.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:48 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.4ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Exist fragment? views/assets/9-20110404224841 (1.9ms)
+Read fragment views/assets/9-20110404224841 (0.1ms)
+Rendered admin/assets/show.html.erb within layouts/admin (18.3ms)
+Completed 200 OK in 68ms (Views: 25.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:48 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Exist fragment? views/assets/9-20110404224841 (0.3ms)
+Read fragment views/assets/9-20110404224841 (0.1ms)
+Rendered admin/assets/show.html.erb within layouts/admin (16.6ms)
+Completed 200 OK in 63ms (Views: 23.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/assets/9" for 127.0.0.1 at Mon Apr 04 19:48:49 -0300 2011
+  Processing by Admin::AssetsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (0.3ms)[0m  SELECT "assets".* FROM "assets" WHERE "assets"."id" = 9 ORDER BY created_at DESC LIMIT 1
+Exist fragment? views/assets/9-20110404224841 (0.3ms)
+Read fragment views/assets/9-20110404224841 (0.1ms)
+Rendered admin/assets/show.html.erb within layouts/admin (12.7ms)
+Completed 200 OK in 170ms (Views: 17.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Mon Apr 04 19:52:52 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-04-04 22:52:52.606419') ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered posts/_sidebar.html.erb (6.9ms)
+Rendered posts/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 83ms (Views: 59.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/1-rails-3-0-rc" for 127.0.0.1 at Mon Apr 04 19:52:54 -0300 2011
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 AND (draft = 'f' AND published_at < '2011-04-04 22:52:54.765438') ORDER BY created_at DESC LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)[0m
+Rendered shared/_error_messages.html.erb (0.7ms)
+Rendered comments/_form.html.erb (12.7ms)
+Rendered posts/_sidebar.html.erb (105.2ms)
+Rendered posts/show.html.erb within layouts/application (180.1ms)
+Write page /Users/daniel/producer/public/posts/1-rails-3-0-rc.html (0.6ms)
+Completed 200 OK in 229ms (Views: 205.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Mon Apr 04 19:53:22 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Read fragment views/localhost:3000/admin/posts (0.3ms)
+Completed 200 OK in 120ms
+
+
+Started GET "/admin/posts/1-rails-3-0-rc/edit" for 127.0.0.1 at Mon Apr 04 19:53:25 -0300 2011
+  Processing by Admin::PostsController#edit as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mAsset Load (0.5ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "assets"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 1 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 2 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 3 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 4 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 5 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 6 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 7 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+Rendered admin/posts/_asset.html.erb (8.6ms)
+Rendered admin/posts/_form.html.erb (43.1ms)
+Rendered admin/posts/edit.html.erb within layouts/admin (54.8ms)
+Completed 200 OK in 131ms (Views: 59.4ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/admin/posts/1-rails-3-0-rc" for 127.0.0.1 at Mon Apr 04 19:53:33 -0300 2011
+  Processing by Admin::PostsController#update as HTML
+  Parameters: {"commit"=>"Update Post", "post"=>{"slug"=>"rails-3-0-rc", "title"=>"Rails 3.0.5", "body"=>"    <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.\r\n    As things usually go in open source, we gorged ourselves on fixes and improvements instead.\r\n    But all to your benefit. We’ve had \"842 commits by 125 authors\":http://github.com/rails/rails/compare/v3.0.0.beta4...master\r\n    since the release of the last beta!</p>\r\n\r\n    <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.\r\n    So please welcome the Rails 3 release candidate!\r\n    You install, as always, with *gem install rails --pre*.</p>\r\n\r\n    <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3\r\n    development and startup speed for larger applications\r\n    (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>\r\n\r\n    <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.\r\n    We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>\r\n  ", "excerpt"=>"    High off Baltimore Pandemic and Yellow Tops,\r\n    I believe we promised a release candidate shortly after RailsConf.\r\n    As things usually go in open source, we gorged ourselves on fixes and improvements instead.\r\n  ", "draft"=>"0", "published_at(1i)"=>"2011", "published_at(2i)"=>"4", "published_at(3i)"=>"4", "category_ids"=>["1", "7"], "author_id"=>"1"}, "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "id"=>"1-rails-3-0-rc"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mAsset Load (0.4ms)[0m  [1mSELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "assets"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" IN (1, 7)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'rails-3-0-rc') AND ("posts".id <> 1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'admin@cursorails.net') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "posts" SET "published_at" = '2011-04-04 03:00:00.000000', "updated_at" = '2011-04-04 22:53:34.039285', "title" = 'Rails 3.0.5', "excerpt" = ' High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', "body" = ' <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ' WHERE "posts"."id" = 1[0m
+Redirected to http://localhost:3000/admin/posts/1-rails-3-0-rc/edit
+Completed 302 Found in 325ms
+
+
+Started GET "/admin/posts/1-rails-3-0-rc/edit" for 127.0.0.1 at Mon Apr 04 19:53:34 -0300 2011
+  Processing by Admin::PostsController#edit as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mAsset Load (0.5ms)[0m  [1mSELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "assets"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (0.6ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 1 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 2 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 3 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 4 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 5 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 6 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 7 AND ("categories_posts".post_id = 1 ) LIMIT 1
+Rendered admin/posts/_asset.html.erb (11.1ms)
+Rendered admin/posts/_form.html.erb (50.3ms)
+Rendered admin/posts/edit.html.erb within layouts/admin (66.3ms)
+Completed 200 OK in 247ms (Views: 71.3ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/admin/posts/1-rails-3-0-rc" for 127.0.0.1 at Mon Apr 04 19:54:13 -0300 2011
+  Processing by Admin::PostsController#update as HTML
+  Parameters: {"commit"=>"Update Post", "post"=>{"slug"=>"rails-3-0-rc", "title"=>"Rails 3.0.5 -", "body"=>"    <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.\r\n    As things usually go in open source, we gorged ourselves on fixes and improvements instead.\r\n    But all to your benefit. We’ve had \"842 commits by 125 authors\":http://github.com/rails/rails/compare/v3.0.0.beta4...master\r\n    since the release of the last beta!</p>\r\n\r\n    <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.\r\n    So please welcome the Rails 3 release candidate!\r\n    You install, as always, with *gem install rails --pre*.</p>\r\n\r\n    <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3\r\n    development and startup speed for larger applications\r\n    (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>\r\n\r\n    <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.\r\n    We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>\r\n  ", "excerpt"=>"    High off Baltimore Pandemic and Yellow Tops,\r\n    I believe we promised a release candidate shortly after RailsConf.\r\n    As things usually go in open source, we gorged ourselves on fixes and improvements instead.\r\n  ", "draft"=>"0", "published_at(1i)"=>"2011", "published_at(2i)"=>"4", "published_at(3i)"=>"4", "category_ids"=>["1", "7"], "author_id"=>"1"}, "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "id"=>"1-rails-3-0-rc"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mAsset Load (0.7ms)[0m  [1mSELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "assets"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" IN (1, 7)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'rails-3-0-rc') AND ("posts".id <> 1) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'admin@cursorails.net') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "posts" SET "title" = 'Rails 3.0.5 -', "updated_at" = '2011-04-04 22:54:14.387114' WHERE "posts"."id" = 1[0m
+Redirected to http://localhost:3000/admin/posts/1-rails-3-0-rc/edit
+Completed 302 Found in 381ms
+
+
+Started GET "/admin/posts/1-rails-3-0-rc/edit" for 127.0.0.1 at Mon Apr 04 19:54:14 -0300 2011
+  Processing by Admin::PostsController#edit as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mAsset Load (0.4ms)[0m  [1mSELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "assets"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (1.0ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 1 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 2 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 3 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 4 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 5 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 6 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 7 AND ("categories_posts".post_id = 1 ) LIMIT 1
+Rendered admin/posts/_asset.html.erb (8.5ms)
+Rendered admin/posts/_form.html.erb (45.2ms)
+Rendered admin/posts/edit.html.erb within layouts/admin (57.2ms)
+Completed 200 OK in 216ms (Views: 62.1ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/admin/posts/1-rails-3-0-rc" for 127.0.0.1 at Mon Apr 04 19:55:32 -0300 2011
+  Processing by Admin::PostsController#update as HTML
+  Parameters: {"commit"=>"Update Post", "post"=>{"slug"=>"rails-3-0-rc", "title"=>"Rails 3.0.5", "body"=>"    <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.\r\n    As things usually go in open source, we gorged ourselves on fixes and improvements instead.\r\n    But all to your benefit. We’ve had \"842 commits by 125 authors\":http://github.com/rails/rails/compare/v3.0.0.beta4...master\r\n    since the release of the last beta!</p>\r\n\r\n    <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.\r\n    So please welcome the Rails 3 release candidate!\r\n    You install, as always, with *gem install rails --pre*.</p>\r\n\r\n    <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3\r\n    development and startup speed for larger applications\r\n    (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>\r\n\r\n    <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.\r\n    We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>\r\n  ", "excerpt"=>"    High off Baltimore Pandemic and Yellow Tops,\r\n    I believe we promised a release candidate shortly after RailsConf.\r\n    As things usually go in open source, we gorged ourselves on fixes and improvements instead.\r\n  ", "draft"=>"0", "published_at(1i)"=>"2011", "published_at(2i)"=>"4", "published_at(3i)"=>"4", "category_ids"=>["1", "7"], "author_id"=>"1"}, "authenticity_token"=>"CVpUsLmeN9FYtNiwmf3GBg+7HlHfLLU6z86NW7O40Wg=", "utf8"=>"\342\234\223", "id"=>"1-rails-3-0-rc"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mAsset Load (0.6ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "assets"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN (1, 7)[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'rails-3-0-rc') AND ("posts".id <> 1) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'admin@cursorails.net') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "posts" SET "updated_at" = '2011-04-04 22:55:33.179834', "title" = 'Rails 3.0.5' WHERE "posts"."id" = 1
+Expire page /Users/daniel/producer/public/posts/1-rails-3-0-rc.html (0.2ms)
+Redirected to http://localhost:3000/admin/posts/1-rails-3-0-rc/edit
+Completed 302 Found in 78ms
+
+
+Started GET "/admin/posts/1-rails-3-0-rc/edit" for 127.0.0.1 at Mon Apr 04 19:55:33 -0300 2011
+  Processing by Admin::PostsController#edit as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mAsset Load (0.5ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 4 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "assets"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 ORDER BY created_at DESC LIMIT 1
+Rendered shared/_error_messages.html.erb (0.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 1 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 2 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 3 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 4 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 5 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 6 AND ("categories_posts".post_id = 1 ) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 7 AND ("categories_posts".post_id = 1 ) LIMIT 1[0m
+Rendered admin/posts/_asset.html.erb (9.3ms)
+Rendered admin/posts/_form.html.erb (39.5ms)
+Rendered admin/posts/edit.html.erb within layouts/admin (50.0ms)
+Completed 200 OK in 91ms (Views: 53.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/1-rails-3-0-rc" for 127.0.0.1 at Mon Apr 04 19:55:47 -0300 2011
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1-rails-3-0-rc"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 AND (draft = 'f' AND published_at < '2011-04-04 22:55:47.541267') ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".post_id = 1)
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered comments/_form.html.erb (12.8ms)
+Rendered posts/_sidebar.html.erb (5.6ms)
+Rendered posts/show.html.erb within layouts/application (41.8ms)
+Write page /Users/daniel/producer/public/posts/1-rails-3-0-rc.html (0.4ms)
+Completed 200 OK in 60ms (Views: 48.2ms | ActiveRecord: 0.8ms)

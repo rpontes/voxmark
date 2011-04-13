@@ -1,0 +1,2132 @@
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:20:04 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered inquiries/new.html.erb within layouts/application (100.6ms)
+Completed 200 OK in 131ms (Views: 129.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:20:04 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "inquiries" ("message", "name", "email", "open", "updated_at", "created_at", "subject") VALUES ('Hello, I want a new feature', 'Daniel Lopes', 'danielvlopes@gmail.com', 't', '2011-03-31 21:20:04.286505', '2011-03-31 21:20:04.286505', 'billing')
+Rendered inquiry_mailer/notification.html.erb (19.8ms)
+Completed   in 73ms
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:20:04 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:20:04 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (3.3ms)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("full_name", "current_sign_in_ip", "email", "current_sign_in_at", "remember_created_at", "updated_at", "created_at", "encrypted_password", "last_sign_in_at", "reset_password_token", "last_sign_in_ip", "sign_in_count") VALUES ('João 1', NULL, 'myuser1@gmail.com', NULL, NULL, '2011-03-31 21:20:04.623306', '2011-03-31 21:20:04.623306', '$2a$10$sleFJNyG.oVv1Ss9UFvAyeKHClJNocdwWF4zo43RNVVjuYAfl6oZ2', NULL, NULL, NULL, 0)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-super-awesome-posta') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "excerpt", "published_at", "updated_at", "author_id", "slug", "title", "body", "created_at") VALUES ('f', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 21:20:03.335570', '2011-03-31 21:20:04.794785', 1, 'my-super-awesome-posta', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:20:04.794785')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("full_name", "current_sign_in_ip", "email", "current_sign_in_at", "remember_created_at", "updated_at", "created_at", "encrypted_password", "last_sign_in_at", "reset_password_token", "last_sign_in_ip", "sign_in_count") VALUES ('João 2', NULL, 'myuser2@gmail.com', NULL, NULL, '2011-03-31 21:20:04.899012', '2011-03-31 21:20:04.899012', '$2a$10$3dGZNvSKav.kYU2pErKXjOVlmQnxHSBGSU2nn9ZzO6T2WBXyDDNKW', NULL, NULL, NULL, 0)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'awesome-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("draft", "excerpt", "published_at", "updated_at", "author_id", "slug", "title", "body", "created_at") VALUES ('f', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 21:20:03.335570', '2011-03-31 21:20:04.903378', 1, 'awesome-post', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:20:04.903378')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("full_name", "current_sign_in_ip", "email", "current_sign_in_at", "remember_created_at", "updated_at", "created_at", "encrypted_password", "last_sign_in_at", "reset_password_token", "last_sign_in_ip", "sign_in_count") VALUES ('João 3', NULL, 'myuser3@gmail.com', NULL, NULL, '2011-03-31 21:20:05.005310', '2011-03-31 21:20:05.005310', '$2a$10$CaJcgbHJiIClNCh1xa0uV.G95u1qCk/HYt9VDGaZuM.i7NQc1gKea', NULL, NULL, NULL, 0)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "excerpt", "published_at", "updated_at", "author_id", "slug", "title", "body", "created_at") VALUES ('f', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 21:20:03.335570', '2011-03-31 21:20:05.008974', 1, 'my-slug', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:20:05.008974')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:21:05 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:21:05 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "inquiries" ("email", "subject", "message", "updated_at", "created_at", "open", "name") VALUES ('danielvlopes@gmail.com', 'billing', 'Hello, I want a new feature', '2011-03-31 21:21:05.300829', '2011-03-31 21:21:05.300829', 't', 'Daniel Lopes')
+Rendered inquiry_mailer/notification.html.erb (3.2ms)
+Completed   in 35ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (2.9ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:21:05 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:21:05 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (3.3ms)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (2.4ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (3.5ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.6ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "users" ("current_sign_in_at", "full_name", "email", "updated_at", "encrypted_password", "reset_password_token", "current_sign_in_ip", "sign_in_count", "remember_created_at", "last_sign_in_at", "last_sign_in_ip", "created_at") VALUES (NULL, 'João 1', 'myuser1@gmail.com', '2011-03-31 21:21:05.686205', '$2a$10$1GxDDWfsxtgZo275BGRuJ.C74bUjQVFzAcn3B7txAtR.3e3GDfU5m', NULL, NULL, 0, NULL, NULL, NULL, '2011-03-31 21:21:05.686205')
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-super-awesome-posta') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("excerpt", "draft", "published_at", "slug", "author_id", "body", "updated_at", "created_at", "title") VALUES ('
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'f', '2011-03-31 21:21:04.803668', 'my-super-awesome-posta', 1, '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:21:05.829125', '2011-03-31 21:21:05.829125', 'Awesome Post')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("current_sign_in_at", "full_name", "email", "updated_at", "encrypted_password", "reset_password_token", "current_sign_in_ip", "sign_in_count", "remember_created_at", "last_sign_in_at", "last_sign_in_ip", "created_at") VALUES (NULL, 'João 2', 'myuser2@gmail.com', '2011-03-31 21:21:05.961648', '$2a$10$RBNNO.SGNFmaMIHVhfB4.ubtNrz6wcn/ijmE8TUXTFFUhwnBSeA.y', NULL, NULL, 0, NULL, NULL, NULL, '2011-03-31 21:21:05.961648')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'awesome-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("excerpt", "draft", "published_at", "slug", "author_id", "body", "updated_at", "created_at", "title") VALUES ('
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'f', '2011-03-31 21:21:04.803668', 'awesome-post', 1, '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:21:05.966510', '2011-03-31 21:21:05.966510', 'Awesome Post')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("current_sign_in_at", "full_name", "email", "updated_at", "encrypted_password", "reset_password_token", "current_sign_in_ip", "sign_in_count", "remember_created_at", "last_sign_in_at", "last_sign_in_ip", "created_at") VALUES (NULL, 'João 3', 'myuser3@gmail.com', '2011-03-31 21:21:06.069980', '$2a$10$lsDHUFdRZdDJrDp/Ysr7SOW06vYEvng.lHotXr6EXnyW8G0LtBeRS', NULL, NULL, 0, NULL, NULL, NULL, '2011-03-31 21:21:06.069980')
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("excerpt", "draft", "published_at", "slug", "author_id", "body", "updated_at", "created_at", "title") VALUES ('
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'f', '2011-03-31 21:21:04.803668', 'my-slug', 1, '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:21:06.074234', '2011-03-31 21:21:06.074234', 'Awesome Post')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:21:56 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:21:56 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "inquiries" ("created_at", "name", "subject", "open", "email", "updated_at", "message") VALUES ('2011-03-31 21:21:56.177755', 'Daniel Lopes', 'billing', 't', 'danielvlopes@gmail.com', '2011-03-31 21:21:56.177755', 'Hello, I want a new feature')
+Rendered inquiry_mailer/notification.html.erb (3.0ms)
+Completed   in 35ms
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (3.7ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:21:56 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.2ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 10.7ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:21:56 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (4.1ms)
+Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "users" ("current_sign_in_at", "full_name", "email", "encrypted_password", "current_sign_in_ip", "reset_password_token", "updated_at", "remember_created_at", "last_sign_in_at", "created_at", "sign_in_count", "last_sign_in_ip") VALUES (NULL, 'João 1', 'myuser1@gmail.com', '$2a$10$CEJHeCp9LGcy/dY.G9i9FOSkhHGuPdtGcoHwI1Cm0h9P0Cx2IzB7m', NULL, NULL, '2011-03-31 21:21:56.563002', NULL, NULL, '2011-03-31 21:21:56.563002', 0, NULL)
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-super-awesome-posta') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("created_at", "author_id", "draft", "published_at", "slug", "title", "body", "excerpt", "updated_at") VALUES ('2011-03-31 21:21:56.741198', 1, 'f', '2011-03-31 21:21:55.643491', 'my-super-awesome-posta', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 21:21:56.741198')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.6ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("current_sign_in_at", "full_name", "email", "encrypted_password", "current_sign_in_ip", "reset_password_token", "updated_at", "remember_created_at", "last_sign_in_at", "created_at", "sign_in_count", "last_sign_in_ip") VALUES (NULL, 'João 2', 'myuser2@gmail.com', '$2a$10$/9P7Rnpw8JRB1KmFp2F3g.GwPozqD5Em.Lhe.6YMTUIf05hKubLL6', NULL, NULL, '2011-03-31 21:21:56.848771', NULL, NULL, '2011-03-31 21:21:56.848771', 0, NULL)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'awesome-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("created_at", "author_id", "draft", "published_at", "slug", "title", "body", "excerpt", "updated_at") VALUES ('2011-03-31 21:21:56.853931', 1, 'f', '2011-03-31 21:21:55.643491', 'awesome-post', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 21:21:56.853931')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("current_sign_in_at", "full_name", "email", "encrypted_password", "current_sign_in_ip", "reset_password_token", "updated_at", "remember_created_at", "last_sign_in_at", "created_at", "sign_in_count", "last_sign_in_ip") VALUES (NULL, 'João 3', 'myuser3@gmail.com', '$2a$10$ICOKKDkAcdxeFvVhqgjiMOTpCiDsvryV4sy7EpQR.ndiR.zcU.bTu', NULL, NULL, '2011-03-31 21:21:56.956931', NULL, NULL, '2011-03-31 21:21:56.956931', 0, NULL)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("created_at", "author_id", "draft", "published_at", "slug", "title", "body", "excerpt", "updated_at") VALUES ('2011-03-31 21:21:56.961643', 1, 'f', '2011-03-31 21:21:55.643491', 'my-slug', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 21:21:56.961643')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:22:34 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.7ms)
+Rendered inquiries/new.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:22:34 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "inquiries" ("subject", "email", "message", "open", "created_at", "name", "updated_at") VALUES ('billing', 'danielvlopes@gmail.com', 'Hello, I want a new feature', 't', '2011-03-31 21:22:34.913323', 'Daniel Lopes', '2011-03-31 21:22:34.913323')
+Rendered inquiry_mailer/notification.html.erb (1.5ms)
+Rendered inquiry_mailer/notification.text.erb (0.8ms)
+
+Sent mail to contact@producer.com (175ms)
+Date: Thu, 31 Mar 2011 18:22:35 -0300
+Reply-To: danielvlopes@gmail.com
+To: contact@producer.com
+Message-ID: <4d94f09b20ec9_3e87800ea92c700c2@macbook.local.mail>
+Subject: New inquiry
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d94f09ae950e_3e87800ea92c69734";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d94f09ae950e_3e87800ea92c69734
+Date: Thu, 31 Mar 2011 18:22:35 -0300
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d94f09b3d2c_3e87800ea92c69869@macbook.local.mail>
+
+You just received a new inquiry.
+
+--- inquiry starts ---
+
+From: Daniel Lopes
+Email: danielvlopes@gmail.com
+
+Message:
+Hello, I want a new feature
+
+--- inquiry ends ---
+
+You can also review this inquiry in your admin area:
+
+http://localhost:3000/admin/inquiries/1
+
+----==_mimepart_4d94f09ae950e_3e87800ea92c69734
+Date: Thu, 31 Mar 2011 18:22:35 -0300
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d94f09b1fc32_3e87800ea92c69928@macbook.local.mail>
+
+<p>Hi there,</p>
+
+<p>You just received a new inquiry.</p>
+<p><b>From:</b>Daniel Lopes <span class="hint">(danielvlopes@gmail.com)</span></p>
+<p><b>Subject:</b> billing </p>
+<p>  Hello, I want a new feature</p>
+
+<hr />
+
+<p>You can also review this inquiry in your <a href="http://localhost:3000/admin/inquiries/1">admin area</a></p>.
+
+
+----==_mimepart_4d94f09ae950e_3e87800ea92c69734--
+Redirected to http://www.example.com/contact/new
+Completed 302 Found in 233ms
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:22:35 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered inquiries/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 18:22:35 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 18:22:35 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (4.6ms)
+Completed 200 OK in 20ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.8ms)[0m  INSERT INTO "users" ("full_name", "updated_at", "current_sign_in_at", "last_sign_in_ip", "created_at", "last_sign_in_at", "encrypted_password", "remember_created_at", "sign_in_count", "current_sign_in_ip", "email", "reset_password_token") VALUES ('João 1', '2011-03-31 21:22:35.378860', NULL, NULL, '2011-03-31 21:22:35.378860', NULL, '$2a$10$LeiDRe3pbJ1uesByp5T1Hu3Af4Y454TumaE1joJ1DLxkOR1xI3hN6', NULL, 0, NULL, 'myuser1@gmail.com', NULL)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-super-awesome-posta') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "posts" ("created_at", "excerpt", "title", "slug", "body", "published_at", "draft", "author_id", "updated_at") VALUES ('2011-03-31 21:22:35.671502', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'Awesome Post', 'my-super-awesome-posta', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:22:34.421745', 'f', 1, '2011-03-31 21:22:35.671502')[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "users" ("full_name", "updated_at", "current_sign_in_at", "last_sign_in_ip", "created_at", "last_sign_in_at", "encrypted_password", "remember_created_at", "sign_in_count", "current_sign_in_ip", "email", "reset_password_token") VALUES ('João 2', '2011-03-31 21:22:35.791849', NULL, NULL, '2011-03-31 21:22:35.791849', NULL, '$2a$10$gN0N8kT3OaS348M1pTibNOuTP0NahOF4hHeD/nXLXKbXT6Xu1DXKi', NULL, 0, NULL, 'myuser2@gmail.com', NULL)[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'awesome-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("created_at", "excerpt", "title", "slug", "body", "published_at", "draft", "author_id", "updated_at") VALUES ('2011-03-31 21:22:35.798230', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'Awesome Post', 'awesome-post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:22:34.421745', 'f', 1, '2011-03-31 21:22:35.798230')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "users" ("full_name", "updated_at", "current_sign_in_at", "last_sign_in_ip", "created_at", "last_sign_in_at", "encrypted_password", "remember_created_at", "sign_in_count", "current_sign_in_ip", "email", "reset_password_token") VALUES ('João 3', '2011-03-31 21:22:35.906924', NULL, NULL, '2011-03-31 21:22:35.906924', NULL, '$2a$10$/T9NwNlVcEYONJDGiqkhMO/XtLYol/ek8Ua1S0sbqbk3vD.meItEG', NULL, 0, NULL, 'myuser3@gmail.com', NULL)
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("created_at", "excerpt", "title", "slug", "body", "published_at", "draft", "author_id", "updated_at") VALUES ('2011-03-31 21:22:35.913108', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'Awesome Post', 'my-slug', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 21:22:34.421745', 'f', 1, '2011-03-31 21:22:35.913108')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:01:29 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:01:29 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "inquiries" ("name", "message", "open", "created_at", "email", "updated_at", "subject") VALUES ('Daniel Lopes', 'Hello, I want a new feature', 't', '2011-03-31 23:01:29.500218', 'danielvlopes@gmail.com', '2011-03-31 23:01:29.500218', 'billing')
+Rendered inquiry_mailer/notification.html.erb (1.4ms)
+Rendered inquiry_mailer/notification.text.erb (1.2ms)
+
+Sent mail to contact@producer.com (162ms)
+Date: Thu, 31 Mar 2011 20:01:29 -0300
+Reply-To: danielvlopes@gmail.com
+To: contact@producer.com
+Message-ID: <4d9507c9ad280_40fb800ea92c973a6@macbook.local.mail>
+Subject: New inquiry
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d9507c984727_40fb800ea92c970c2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d9507c984727_40fb800ea92c970c2
+Date: Thu, 31 Mar 2011 20:01:29 -0300
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d9507c98d89c_40fb800ea92c971aa@macbook.local.mail>
+
+You just received a new inquiry.
+
+--- inquiry starts ---
+
+From: Daniel Lopes
+Email: danielvlopes@gmail.com
+
+Message:
+Hello, I want a new feature
+
+--- inquiry ends ---
+
+You can also review this inquiry in your admin area:
+
+http://localhost:3000/admin/inquiries/1
+
+----==_mimepart_4d9507c984727_40fb800ea92c970c2
+Date: Thu, 31 Mar 2011 20:01:29 -0300
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d9507c9abd52_40fb800ea92c972d5@macbook.local.mail>
+
+<p>Hi there,</p>
+
+<p>You just received a new inquiry.</p>
+<p><b>From:</b>Daniel Lopes <span class="hint">(danielvlopes@gmail.com)</span></p>
+<p><b>Subject:</b> billing </p>
+<p>  Hello, I want a new feature</p>
+
+<hr />
+
+<p>You can also review this inquiry in your <a href="http://localhost:3000/admin/inquiries/1">admin area</a></p>.
+
+
+----==_mimepart_4d9507c984727_40fb800ea92c970c2--
+Redirected to http://www.example.com/contact/new
+Completed 302 Found in 223ms
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:01:29 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered inquiries/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:01:29 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:01:29 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (4.0ms)
+Completed 200 OK in 17ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "users";
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "full_name", "reset_password_token", "updated_at", "sign_in_count", "email", "current_sign_in_ip", "encrypted_password", "remember_created_at", "last_sign_in_ip", "last_sign_in_at") VALUES ('2011-03-31 23:05:48.716445', NULL, 'João 1', NULL, '2011-03-31 23:05:48.716445', 0, 'myuser1@gmail.com', NULL, '$2a$10$3MJ4EBkZf0FAqLpPBWfCier7SA./mi70EIGJr4gSveBlBKjmYzqf.', NULL, NULL, NULL)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'Meu post sUper légal!!!') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("author_id", "draft", "title", "body", "excerpt", "slug", "created_at", "published_at", "updated_at") VALUES (1, 'f', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'Meu post sUper légal!!!', '2011-03-31 23:05:48.751990', '2011-03-31 23:05:48.218200', '2011-03-31 23:05:48.751990')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("last_sign_in_ip", "email", "current_sign_in_at", "reset_password_token", "last_sign_in_at", "updated_at", "encrypted_password", "remember_created_at", "created_at", "current_sign_in_ip", "full_name", "sign_in_count") VALUES (NULL, 'myuser1@gmail.com', NULL, NULL, NULL, '2011-03-31 23:06:22.097603', '$2a$10$hUje93rgjCyXTFJFUlNKz.1rg3r2JnBBkTO91SmFDKG.zcsVSwOlS', NULL, '2011-03-31 23:06:22.097603', NULL, 'João 1', 0)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("author_id", "slug", "published_at", "body", "created_at", "title", "excerpt", "updated_at", "draft") VALUES (1, 'meu-post-super-legal', '2011-03-31 23:06:21.606054', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:06:22.324339', 'Awesome Post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:06:22.324339', 'f')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("last_sign_in_ip", "email", "current_sign_in_at", "reset_password_token", "last_sign_in_at", "updated_at", "encrypted_password", "remember_created_at", "created_at", "current_sign_in_ip", "full_name", "sign_in_count") VALUES (NULL, 'myuser1@gmail.com', NULL, NULL, NULL, '2011-03-31 23:06:46.838625', '$2a$10$rh/mXfZq.5r6l1FvYj6PsOwPZiCb.4ALXOfLmmav.K0rFUXiHR7LC', NULL, '2011-03-31 23:06:46.838625', NULL, 'João 1', 0)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("author_id", "slug", "published_at", "body", "created_at", "title", "excerpt", "updated_at", "draft") VALUES (1, 'meu-post-super-legal', '2011-03-31 23:06:46.255273', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:06:47.069386', 'Awesome Post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:06:47.069386', 'f')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("last_sign_in_at", "last_sign_in_ip", "updated_at", "sign_in_count", "remember_created_at", "current_sign_in_at", "created_at", "reset_password_token", "current_sign_in_ip", "email", "encrypted_password", "full_name") VALUES (NULL, NULL, '2011-03-31 23:08:30.628967', 0, NULL, NULL, '2011-03-31 23:08:30.628967', NULL, NULL, 'myuser1@gmail.com', '$2a$10$qjspIV26GRI.RWLKt0PjEeZGW0LKcZnBei.Px1E564Veir03DUtha', 'João 1')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("author_id", "draft", "created_at", "excerpt", "updated_at", "body", "title", "published_at", "slug") VALUES (1, 'f', '2011-03-31 23:08:30.866422', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:08:30.866422', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 'Awesome Post', '2011-03-31 23:08:30.153920', 'meu-post-super-legal')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("last_sign_in_at", "last_sign_in_ip", "updated_at", "sign_in_count", "remember_created_at", "current_sign_in_at", "created_at", "reset_password_token", "current_sign_in_ip", "email", "encrypted_password", "full_name") VALUES (NULL, NULL, '2011-03-31 23:08:30.963218', 0, NULL, NULL, '2011-03-31 23:08:30.963218', NULL, NULL, 'myuser2@gmail.com', '$2a$10$eDWhQ3GUhnTGtBdERReGbeN/JbJyjR3kEwnBloRSwXUjms5ZpDoLG', 'João 2')
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("author_id", "draft", "created_at", "excerpt", "updated_at", "body", "title", "published_at", "slug") VALUES (1, 'f', '2011-03-31 23:08:30.967656', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:08:30.967656', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 'Meu Post', '2011-03-31 23:08:30.153920', 'meu-post')[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "current_sign_in_ip", "reset_password_token", "last_sign_in_at", "remember_created_at", "updated_at", "current_sign_in_at", "full_name", "sign_in_count", "created_at", "last_sign_in_ip", "encrypted_password") VALUES ('myuser1@gmail.com', NULL, NULL, NULL, NULL, '2011-03-31 23:09:48.389991', NULL, 'João 1', 0, '2011-03-31 23:09:48.389991', NULL, '$2a$10$XXwySSh9iZGVk6tcUfzybOl9nKG7Hs6nLCrTa2DW5FrjcP9sdxkkK')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("draft", "excerpt", "title", "updated_at", "body", "published_at", "created_at", "slug", "author_id") VALUES ('f', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'Awesome Post', '2011-03-31 23:09:48.622346', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:09:47.922624', '2011-03-31 23:09:48.622346', 'meu-post-super-legal', 1)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "users" ("email", "current_sign_in_ip", "reset_password_token", "last_sign_in_at", "remember_created_at", "updated_at", "current_sign_in_at", "full_name", "sign_in_count", "created_at", "last_sign_in_ip", "encrypted_password") VALUES ('myuser2@gmail.com', NULL, NULL, NULL, NULL, '2011-03-31 23:09:48.730840', NULL, 'João 2', 0, '2011-03-31 23:09:48.730840', NULL, '$2a$10$s1G3tIlfswXFlOh0OxRxLuUki2E8sjj5aFS1ulDdF2Ur8Sw5NaFLO')
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "excerpt", "title", "updated_at", "body", "published_at", "created_at", "slug", "author_id") VALUES ('f', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'Meu Post', '2011-03-31 23:09:48.739510', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:09:47.922624', '2011-03-31 23:09:48.739510', 'meu-post', 1)[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("last_sign_in_at", "created_at", "email", "sign_in_count", "remember_created_at", "current_sign_in_ip", "last_sign_in_ip", "current_sign_in_at", "full_name", "reset_password_token", "updated_at", "encrypted_password") VALUES (NULL, '2011-03-31 23:10:25.224435', 'myuser1@gmail.com', 0, NULL, NULL, NULL, NULL, 'João 1', NULL, '2011-03-31 23:10:25.224435', '$2a$10$98Rg7m2vCPYMOIYJhpdrBOuAYgx5/RrDGWbLK0hgNowOGeF89IKbG')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("updated_at", "published_at", "slug", "excerpt", "created_at", "draft", "title", "body", "author_id") VALUES ('2011-03-31 23:10:25.455278', '2011-03-31 23:10:24.738411', 'meu-post-super-legal', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:10:25.455278', 'f', 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 1)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("last_sign_in_at", "created_at", "email", "sign_in_count", "remember_created_at", "current_sign_in_ip", "last_sign_in_ip", "current_sign_in_at", "full_name", "reset_password_token", "updated_at", "encrypted_password") VALUES (NULL, '2011-03-31 23:10:25.550805', 'myuser2@gmail.com', 0, NULL, NULL, NULL, NULL, 'João 2', NULL, '2011-03-31 23:10:25.550805', '$2a$10$5rT5wwaxDV8r31kzm6lSQ.Xx6rYDSYeomLJd6wFRKcQSYG0kZWQE2')
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("updated_at", "published_at", "slug", "excerpt", "created_at", "draft", "title", "body", "author_id") VALUES ('2011-03-31 23:10:25.555191', '2011-03-31 23:10:24.738411', 'meu-post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:10:25.555191', 'f', 'Meu Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 1)[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("reset_password_token", "updated_at", "created_at", "sign_in_count", "full_name", "current_sign_in_ip", "last_sign_in_ip", "remember_created_at", "current_sign_in_at", "encrypted_password", "last_sign_in_at", "email") VALUES (NULL, '2011-03-31 23:11:12.420135', '2011-03-31 23:11:12.420135', 0, 'João 1', NULL, NULL, NULL, NULL, '$2a$10$eWwCO9QXDMes0z0rpdQwOeLyWLEAOYe26DgFX6sVV9qH5V1U2dMlO', NULL, 'myuser1@gmail.com')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("slug", "published_at", "updated_at", "body", "title", "excerpt", "draft", "author_id", "created_at") VALUES ('meu-post-super-legal', '2011-03-31 23:11:11.942487', '2011-03-31 23:11:12.655264', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 'Awesome Post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'f', 1, '2011-03-31 23:11:12.655264')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "users" ("reset_password_token", "updated_at", "created_at", "sign_in_count", "full_name", "current_sign_in_ip", "last_sign_in_ip", "remember_created_at", "current_sign_in_at", "encrypted_password", "last_sign_in_at", "email") VALUES (NULL, '2011-03-31 23:11:12.772387', '2011-03-31 23:11:12.772387', 0, 'João 2', NULL, NULL, NULL, NULL, '$2a$10$GLjnn3CRQepyhvApRSon.u4IpNv7r52xwxhrE7a8qgQmLUTdYgB9O', NULL, 'myuser2@gmail.com')
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("slug", "published_at", "updated_at", "body", "title", "excerpt", "draft", "author_id", "created_at") VALUES ('meu-post', '2011-03-31 23:11:11.942487', '2011-03-31 23:11:12.780606', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 'Meu Post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'f', 1, '2011-03-31 23:11:12.780606')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "users" ("reset_password_token", "updated_at", "created_at", "sign_in_count", "full_name", "current_sign_in_ip", "last_sign_in_ip", "remember_created_at", "current_sign_in_at", "encrypted_password", "last_sign_in_at", "email") VALUES (NULL, '2011-03-31 23:11:12.877989', '2011-03-31 23:11:12.877989', 0, 'João 3', NULL, NULL, NULL, NULL, '$2a$10$i/pb7gioSrgrPSMA9lFfx.1iMRazoSiIXVBWnEHZOSlFKok5NdsTC', NULL, 'myuser3@gmail.com')[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("slug", "published_at", "updated_at", "body", "title", "excerpt", "draft", "author_id", "created_at") VALUES ('my-slug', '2011-03-31 23:11:11.942487', '2011-03-31 23:11:12.884776', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 'My Super Post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 'f', 1, '2011-03-31 23:11:12.884776')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "updated_at", "sign_in_count", "current_sign_in_at", "current_sign_in_ip", "last_sign_in_at", "full_name", "last_sign_in_ip", "reset_password_token", "remember_created_at", "created_at", "encrypted_password") VALUES ('myuser1@gmail.com', '2011-03-31 23:11:25.283960', 0, NULL, NULL, NULL, 'João 1', NULL, NULL, NULL, '2011-03-31 23:11:25.283960', '$2a$10$.07VagWtXprV0O2mewTSjuw8FNSvk2akk7SC31rgwtnJOqt6ovkuO')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("slug", "body", "excerpt", "author_id", "created_at", "published_at", "updated_at", "draft", "title") VALUES ('meu-post-super-legal', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 1, '2011-03-31 23:11:25.544758', '2011-03-31 23:11:24.709692', '2011-03-31 23:11:25.544758', 'f', 'Awesome Post')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("email", "updated_at", "sign_in_count", "current_sign_in_at", "current_sign_in_ip", "last_sign_in_at", "full_name", "last_sign_in_ip", "reset_password_token", "remember_created_at", "created_at", "encrypted_password") VALUES ('myuser2@gmail.com', '2011-03-31 23:11:25.646284', 0, NULL, NULL, NULL, 'João 2', NULL, NULL, NULL, '2011-03-31 23:11:25.646284', '$2a$10$bOUJQollrHfStBCDkIodpuHLECgXx4pBFJXn0.gY3YjIQMckPQN6i')
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("slug", "body", "excerpt", "author_id", "created_at", "published_at", "updated_at", "draft", "title") VALUES ('meu-post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 1, '2011-03-31 23:11:25.655249', '2011-03-31 23:11:24.709692', '2011-03-31 23:11:25.655249', 'f', 'Meu Post')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "updated_at", "sign_in_count", "current_sign_in_at", "current_sign_in_ip", "last_sign_in_at", "full_name", "last_sign_in_ip", "reset_password_token", "remember_created_at", "created_at", "encrypted_password") VALUES ('myuser3@gmail.com', '2011-03-31 23:11:25.765327', 0, NULL, NULL, NULL, 'João 3', NULL, NULL, NULL, '2011-03-31 23:11:25.765327', '$2a$10$M4rO.NI8eEtWWvJdYxH.C.uoG.p5JwPWsccrnYy7BWX9wudk0/1Jy')[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("slug", "body", "excerpt", "author_id", "created_at", "published_at", "updated_at", "draft", "title") VALUES ('my-slug', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', 1, '2011-03-31 23:11:25.772301', '2011-03-31 23:11:24.709692', '2011-03-31 23:11:25.772301', 'f', 'My Super Post')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("current_sign_in_ip", "created_at", "sign_in_count", "last_sign_in_at", "email", "full_name", "current_sign_in_at", "remember_created_at", "reset_password_token", "updated_at", "last_sign_in_ip", "encrypted_password") VALUES (NULL, '2011-03-31 23:15:00.852973', 0, NULL, 'myuser1@gmail.com', 'João 1', NULL, NULL, NULL, '2011-03-31 23:15:00.852973', NULL, '$2a$10$ZFLAcGdMYixjoXdlzciiFO6bZGbx3eFYgGvnu8LdWZr9D7Y/j0G7S')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("slug", "updated_at", "author_id", "title", "body", "published_at", "excerpt", "created_at", "draft") VALUES ('meu-post-super-legal', '2011-03-31 23:15:01.089243', 1, 'Awesome Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:15:00.345069', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:15:01.089243', 'f')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("current_sign_in_ip", "created_at", "sign_in_count", "last_sign_in_at", "email", "full_name", "current_sign_in_at", "remember_created_at", "reset_password_token", "updated_at", "last_sign_in_ip", "encrypted_password") VALUES (NULL, '2011-03-31 23:15:01.187175', 0, NULL, 'myuser2@gmail.com', 'João 2', NULL, NULL, NULL, '2011-03-31 23:15:01.187175', NULL, '$2a$10$/8ynCG/TvftpAb0eqBI9deF9iSr.egWcGVvDxG6PfUVeOePNWdOGi')
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("slug", "updated_at", "author_id", "title", "body", "published_at", "excerpt", "created_at", "draft") VALUES ('meu-post', '2011-03-31 23:15:01.193114', 1, 'Meu Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:15:00.345069', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:15:01.193114', 'f')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("current_sign_in_ip", "created_at", "sign_in_count", "last_sign_in_at", "email", "full_name", "current_sign_in_at", "remember_created_at", "reset_password_token", "updated_at", "last_sign_in_ip", "encrypted_password") VALUES (NULL, '2011-03-31 23:15:01.291220', 0, NULL, 'myuser3@gmail.com', 'João 3', NULL, NULL, NULL, '2011-03-31 23:15:01.291220', NULL, '$2a$10$LveUGAI.VyDZFlLP/OUEbOt9MznbGC5T7zEpcIO4KpvjrazJv2f6C')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("slug", "updated_at", "author_id", "title", "body", "published_at", "excerpt", "created_at", "draft") VALUES ('my-slug', '2011-03-31 23:15:01.294842', 1, 'My Super Post', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:15:00.345069', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:15:01.294842', 'f')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:21:11 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered inquiries/new.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:21:11 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "inquiries" ("name", "message", "open", "created_at", "email", "updated_at", "subject") VALUES ('Daniel Lopes', 'Hello, I want a new feature', 't', '2011-03-31 23:21:11.181949', 'danielvlopes@gmail.com', '2011-03-31 23:21:11.181949', 'billing')
+Rendered inquiry_mailer/notification.html.erb (1.0ms)
+Rendered inquiry_mailer/notification.text.erb (1.2ms)
+
+Sent mail to contact@producer.com (164ms)
+Date: Thu, 31 Mar 2011 20:21:11 -0300
+Reply-To: danielvlopes@gmail.com
+To: contact@producer.com
+Message-ID: <4d950c675e2c1_415c800ea92c78e@macbook.local.mail>
+Subject: New inquiry
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d950c6735a29_415c800ea92c4b5";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d950c6735a29_415c800ea92c4b5
+Date: Thu, 31 Mar 2011 20:21:11 -0300
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950c6739b12_415c800ea92c555@macbook.local.mail>
+
+You just received a new inquiry.
+
+--- inquiry starts ---
+
+From: Daniel Lopes
+Email: danielvlopes@gmail.com
+
+Message:
+Hello, I want a new feature
+
+--- inquiry ends ---
+
+You can also review this inquiry in your admin area:
+
+http://localhost:3000/admin/inquiries/1
+
+----==_mimepart_4d950c6735a29_415c800ea92c4b5
+Date: Thu, 31 Mar 2011 20:21:11 -0300
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950c675c4fe_415c800ea92c690@macbook.local.mail>
+
+<p>Hi there,</p>
+
+<p>You just received a new inquiry.</p>
+<p><b>From:</b>Daniel Lopes <span class="hint">(danielvlopes@gmail.com)</span></p>
+<p><b>Subject:</b> billing </p>
+<p>  Hello, I want a new feature</p>
+
+<hr />
+
+<p>You can also review this inquiry in your <a href="http://localhost:3000/admin/inquiries/1">admin area</a></p>.
+
+
+----==_mimepart_4d950c6735a29_415c800ea92c4b5--
+Redirected to http://www.example.com/contact/new
+Completed 302 Found in 217ms
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:21:11 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.2ms)
+Rendered inquiries/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (2.0ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:21:11 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:21:11 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (5.0ms)
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("updated_at", "encrypted_password", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "reset_password_token", "email", "remember_created_at", "current_sign_in_at", "sign_in_count", "full_name", "created_at") VALUES ('2011-03-31 23:21:11.577796', '$2a$10$SUmqONNe2yblF8zHgqnvZu2tzkIpYECfx/eACNTQIf14nFXC0dG9K', NULL, NULL, NULL, NULL, 'myuser1@gmail.com', NULL, NULL, 0, 'João 1', '2011-03-31 23:21:11.577796')
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "title", "author_id", "updated_at", "slug", "published_at", "excerpt", "body", "created_at") VALUES ('f', 'Awesome Post', 1, '2011-03-31 23:21:11.804514', 'meu-post-super-legal', '2011-03-31 23:21:10.725445', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:21:11.804514')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("updated_at", "encrypted_password", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "reset_password_token", "email", "remember_created_at", "current_sign_in_at", "sign_in_count", "full_name", "created_at") VALUES ('2011-03-31 23:21:11.907699', '$2a$10$l8Nb5pzeeIivgAgrbIxa5epOO9S8DZvWGsz8XNhU2DzlHcM4nFpQC', NULL, NULL, NULL, NULL, 'myuser2@gmail.com', NULL, NULL, 0, 'João 2', '2011-03-31 23:21:11.907699')[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("draft", "title", "author_id", "updated_at", "slug", "published_at", "excerpt", "body", "created_at") VALUES ('f', 'Meu Post', 1, '2011-03-31 23:21:11.913452', 'meu-post', '2011-03-31 23:21:10.725445', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:21:11.913452')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.9ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "users" ("updated_at", "encrypted_password", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "reset_password_token", "email", "remember_created_at", "current_sign_in_at", "sign_in_count", "full_name", "created_at") VALUES ('2011-03-31 23:21:12.018101', '$2a$10$YDS9peqI3AHg5d.HUt.aBuyIUDAPS8xiMQT.I5zDRmaWwnBPKkMYa', NULL, NULL, NULL, NULL, 'myuser3@gmail.com', NULL, NULL, 0, 'João 3', '2011-03-31 23:21:12.018101')
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "title", "author_id", "updated_at", "slug", "published_at", "excerpt", "body", "created_at") VALUES ('f', 'My Super Post', 1, '2011-03-31 23:21:12.024265', 'my-slug', '2011-03-31 23:21:10.725445', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '2011-03-31 23:21:12.024265')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:22:17 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.7ms)
+Rendered inquiries/new.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:22:18 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "inquiries" ("created_at", "email", "message", "updated_at", "open", "subject", "name") VALUES ('2011-03-31 23:22:18.021093', 'danielvlopes@gmail.com', 'Hello, I want a new feature', '2011-03-31 23:22:18.021093', 't', 'billing', 'Daniel Lopes')
+Rendered inquiry_mailer/notification.html.erb (1.3ms)
+Rendered inquiry_mailer/notification.text.erb (1.1ms)
+
+Sent mail to contact@producer.com (131ms)
+Date: Thu, 31 Mar 2011 20:22:18 -0300
+Reply-To: danielvlopes@gmail.com
+To: contact@producer.com
+Message-ID: <4d950caa2ffa7_4162800ea92c897fa@macbook.local.mail>
+Subject: New inquiry
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d950caaf5ec_4162800ea92c894e0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d950caaf5ec_4162800ea92c894e0
+Date: Thu, 31 Mar 2011 20:22:18 -0300
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950caa12d96_4162800ea92c89561@macbook.local.mail>
+
+You just received a new inquiry.
+
+--- inquiry starts ---
+
+From: Daniel Lopes
+Email: danielvlopes@gmail.com
+
+Message:
+Hello, I want a new feature
+
+--- inquiry ends ---
+
+You can also review this inquiry in your admin area:
+
+http://localhost:3000/admin/inquiries/1
+
+----==_mimepart_4d950caaf5ec_4162800ea92c894e0
+Date: Thu, 31 Mar 2011 20:22:18 -0300
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950caa2ea26_4162800ea92c8969d@macbook.local.mail>
+
+<p>Hi there,</p>
+
+<p>You just received a new inquiry.</p>
+<p><b>From:</b>Daniel Lopes <span class="hint">(danielvlopes@gmail.com)</span></p>
+<p><b>Subject:</b> billing </p>
+<p>  Hello, I want a new feature</p>
+
+<hr />
+
+<p>You can also review this inquiry in your <a href="http://localhost:3000/admin/inquiries/1">admin area</a></p>.
+
+
+----==_mimepart_4d950caaf5ec_4162800ea92c894e0--
+Redirected to http://www.example.com/contact/new
+Completed 302 Found in 187ms
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:22:18 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered inquiries/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:22:18 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:22:18 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (3.8ms)
+Completed 200 OK in 18ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.7ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (2.9ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.6ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO "users" ("email", "sign_in_count", "updated_at", "current_sign_in_at", "full_name", "remember_created_at", "current_sign_in_ip", "created_at", "reset_password_token", "encrypted_password", "last_sign_in_ip", "last_sign_in_at") VALUES ('myuser1@gmail.com', 0, '2011-03-31 23:22:18.495379', NULL, 'João 1', NULL, NULL, '2011-03-31 23:22:18.495379', NULL, '$2a$10$qceEupe6la4Ng/Oij.XlZuUjYmGHf9WPLCzQBsKxIP1LQ2Zp2vpxe', NULL, NULL)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "body", "author_id", "title", "slug", "excerpt", "updated_at", "published_at", "created_at") VALUES ('f', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 1, 'Awesome Post', 'meu-post-super-legal', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:22:18.843405', '2011-03-31 23:22:17.568541', '2011-03-31 23:22:18.843405')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "sign_in_count", "updated_at", "current_sign_in_at", "full_name", "remember_created_at", "current_sign_in_ip", "created_at", "reset_password_token", "encrypted_password", "last_sign_in_ip", "last_sign_in_at") VALUES ('myuser2@gmail.com', 0, '2011-03-31 23:22:18.955287', NULL, 'João 2', NULL, NULL, '2011-03-31 23:22:18.955287', NULL, '$2a$10$xd8Ud/Xim47sRTQAxTGvPOniIs9BUW2YqfvgMnBADE7wfm3ubz2vy', NULL, NULL)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "posts" ("draft", "body", "author_id", "title", "slug", "excerpt", "updated_at", "published_at", "created_at") VALUES ('f', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 1, 'Meu Post', 'meu-post', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:22:18.960662', '2011-03-31 23:22:17.568541', '2011-03-31 23:22:18.960662')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.7ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("email", "sign_in_count", "updated_at", "current_sign_in_at", "full_name", "remember_created_at", "current_sign_in_ip", "created_at", "reset_password_token", "encrypted_password", "last_sign_in_ip", "last_sign_in_at") VALUES ('myuser3@gmail.com', 0, '2011-03-31 23:22:19.070616', NULL, 'João 3', NULL, NULL, '2011-03-31 23:22:19.070616', NULL, '$2a$10$I4QR.jyLUN1m1RCi1fFvjOvGH6btBEb9ZlORawNPG/5mkll0OsgrC', NULL, NULL)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("draft", "body", "author_id", "title", "slug", "excerpt", "updated_at", "published_at", "created_at") VALUES ('f', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', 1, 'My Super Post', 'my-slug', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:22:19.074639', '2011-03-31 23:22:17.568541', '2011-03-31 23:22:19.074639')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:22:45 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered inquiries/new.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:22:45 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "inquiries" ("message", "subject", "open", "updated_at", "name", "email", "created_at") VALUES ('Hello, I want a new feature', 'billing', 't', '2011-03-31 23:22:45.909565', 'Daniel Lopes', 'danielvlopes@gmail.com', '2011-03-31 23:22:45.909565')
+Rendered inquiry_mailer/notification.html.erb (1.1ms)
+Rendered inquiry_mailer/notification.text.erb (0.8ms)
+
+Sent mail to contact@producer.com (134ms)
+Date: Thu, 31 Mar 2011 20:22:46 -0300
+Reply-To: danielvlopes@gmail.com
+To: contact@producer.com
+Message-ID: <4d950cc6146a4_4168800ea92c7182a@macbook.local.mail>
+Subject: New inquiry
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d950cc5e7798_4168800ea92c715b7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d950cc5e7798_4168800ea92c715b7
+Date: Thu, 31 Mar 2011 20:22:46 -0300
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950cc5eb71f_4168800ea92c71674@macbook.local.mail>
+
+You just received a new inquiry.
+
+--- inquiry starts ---
+
+From: Daniel Lopes
+Email: danielvlopes@gmail.com
+
+Message:
+Hello, I want a new feature
+
+--- inquiry ends ---
+
+You can also review this inquiry in your admin area:
+
+http://localhost:3000/admin/inquiries/1
+
+----==_mimepart_4d950cc5e7798_4168800ea92c715b7
+Date: Thu, 31 Mar 2011 20:22:46 -0300
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950cc6133d5_4168800ea92c717bd@macbook.local.mail>
+
+<p>Hi there,</p>
+
+<p>You just received a new inquiry.</p>
+<p><b>From:</b>Daniel Lopes <span class="hint">(danielvlopes@gmail.com)</span></p>
+<p><b>Subject:</b> billing </p>
+<p>  Hello, I want a new feature</p>
+
+<hr />
+
+<p>You can also review this inquiry in your <a href="http://localhost:3000/admin/inquiries/1">admin area</a></p>.
+
+
+----==_mimepart_4d950cc5e7798_4168800ea92c715b7--
+Redirected to http://www.example.com/contact/new
+Completed 302 Found in 187ms
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:22:46 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered inquiries/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:22:52 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.3ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:22:54 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (6.0ms)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("sign_in_count", "encrypted_password", "created_at", "email", "remember_created_at", "current_sign_in_ip", "updated_at", "full_name", "last_sign_in_ip", "current_sign_in_at", "last_sign_in_at", "reset_password_token") VALUES (0, '$2a$10$1zBfK4uefgsSN6Jz7uyak.fEdp/rwTQIJ5i1fHHG1G6eYTd4ZNJyC', '2011-03-31 23:22:55.372806', 'myuser1@gmail.com', NULL, NULL, '2011-03-31 23:22:55.372806', 'João 1', NULL, NULL, NULL, NULL)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post-super-legal') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser1@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "posts" ("created_at", "draft", "slug", "author_id", "title", "published_at", "body", "excerpt", "updated_at") VALUES ('2011-03-31 23:22:55.644262', 'f', 'meu-post-super-legal', 1, 'Awesome Post', '2011-03-31 23:22:45.457585', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:22:55.644262')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("sign_in_count", "encrypted_password", "created_at", "email", "remember_created_at", "current_sign_in_ip", "updated_at", "full_name", "last_sign_in_ip", "current_sign_in_at", "last_sign_in_at", "reset_password_token") VALUES (0, '$2a$10$Nmm7TItUCE/Tbpc7NaaR0OsZ.UsOw8Qq80r75EljJADSVrQtteyFC', '2011-03-31 23:22:55.749351', 'myuser2@gmail.com', NULL, NULL, '2011-03-31 23:22:55.749351', 'João 2', NULL, NULL, NULL, NULL)[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'meu-post') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser2@gmail.com') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "posts" ("created_at", "draft", "slug", "author_id", "title", "published_at", "body", "excerpt", "updated_at") VALUES ('2011-03-31 23:22:55.754671', 'f', 'meu-post', 1, 'Meu Post', '2011-03-31 23:22:45.457585', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:22:55.754671')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.1ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "users";
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("sign_in_count", "encrypted_password", "created_at", "email", "remember_created_at", "current_sign_in_ip", "updated_at", "full_name", "last_sign_in_ip", "current_sign_in_at", "last_sign_in_at", "reset_password_token") VALUES (0, '$2a$10$8AVBzjOw.Q7wbLU7PASiROeA76GrAtxhjFJb.QO/pMBLBaHW/JcE.', '2011-03-31 23:22:55.862957', 'myuser3@gmail.com', NULL, NULL, '2011-03-31 23:22:55.862957', 'João 3', NULL, NULL, NULL, NULL)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts"."id" FROM "posts" WHERE ("posts"."slug" = 'my-slug') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."email" = 'myuser3@gmail.com') AND ("users".id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "posts" ("created_at", "draft", "slug", "author_id", "title", "published_at", "body", "excerpt", "updated_at") VALUES ('2011-03-31 23:22:55.867426', 'f', 'my-slug', 1, 'My Super Post', '2011-03-31 23:22:45.457585', '
+ <p>High off Baltimore Pandemic and Yellow Tops, I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ But all to your benefit. We’ve had "842 commits by 125 authors":http://github.com/rails/rails/compare/v3.0.0.beta4...master
+ since the release of the last beta!</p>
+
+ <p>Now it’s time to just say good is good enough, otherwise we could keep on with this forever.
+ So please welcome the Rails 3 release candidate!
+ You install, as always, with *gem install rails --pre*.</p>
+
+ <p>Most of the fixes have been of minor significance, but we did manage to dramatically speed up Rails 3
+ development and startup speed for larger applications
+ (Basecamp went from insufferable to about 2.3 levels of enjoyment).</p>
+
+ <p>Speed is now pretty good across the board except for part of Arel that Active Record now depends on.
+ We’ll be making sure we get performance of Active Record back to at least 2.3 levels before release.</p>
+ ', '
+ High off Baltimore Pandemic and Yellow Tops,
+ I believe we promised a release candidate shortly after RailsConf.
+ As things usually go in open source, we gorged ourselves on fixes and improvements instead.
+ ', '2011-03-31 23:22:55.867426')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "assets";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "categories";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "categories_posts";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "comments";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "inquiries";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "posts";
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:23:38 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.3ms)
+Rendered inquiries/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:23:42 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"Daniel Lopes", "nickname"=>"", "subject"=>"billing", "message"=>"Hello, I want a new feature", "email"=>"danielvlopes@gmail.com"}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "inquiries" ("message", "email", "created_at", "subject", "open", "updated_at", "name") VALUES ('Hello, I want a new feature', 'danielvlopes@gmail.com', '2011-03-31 23:23:42.561222', 'billing', 't', '2011-03-31 23:23:42.561222', 'Daniel Lopes')
+Rendered inquiry_mailer/notification.html.erb (1.1ms)
+Rendered inquiry_mailer/notification.text.erb (0.7ms)
+
+Sent mail to contact@producer.com (25ms)
+Date: Thu, 31 Mar 2011 20:23:42 -0300
+Reply-To: danielvlopes@gmail.com
+To: contact@producer.com
+Message-ID: <4d950cfeb994c_416e81f59d7c5222f@macbook.local.mail>
+Subject: New inquiry
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_4d950cfeb2b99_416e81f59d7c5194b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_4d950cfeb2b99_416e81f59d7c5194b
+Date: Thu, 31 Mar 2011 20:23:42 -0300
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950cfeb6ba0_416e81f59d7c5204a@macbook.local.mail>
+
+You just received a new inquiry.
+
+--- inquiry starts ---
+
+From: Daniel Lopes
+Email: danielvlopes@gmail.com
+
+Message:
+Hello, I want a new feature
+
+--- inquiry ends ---
+
+You can also review this inquiry in your admin area:
+
+http://localhost:3000/admin/inquiries/1
+
+----==_mimepart_4d950cfeb2b99_416e81f59d7c5194b
+Date: Thu, 31 Mar 2011 20:23:42 -0300
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <4d950cfeb84ed_416e81f59d7c521b8@macbook.local.mail>
+
+<p>Hi there,</p>
+
+<p>You just received a new inquiry.</p>
+<p><b>From:</b>Daniel Lopes <span class="hint">(danielvlopes@gmail.com)</span></p>
+<p><b>Subject:</b> billing </p>
+<p>  Hello, I want a new feature</p>
+
+<hr />
+
+<p>You can also review this inquiry in your <a href="http://localhost:3000/admin/inquiries/1">admin area</a></p>.
+
+
+----==_mimepart_4d950cfeb2b99_416e81f59d7c5194b--
+Redirected to http://127.0.0.1:60995/contact/new
+Completed 302 Found in 212ms
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:23:42 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered inquiries/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "users";
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu Mar 31 20:23:42 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 8.7ms)
+
+
+Started POST "/contact" for 127.0.0.1 at Thu Mar 31 20:23:42 -0300 2011
+  Processing by InquiriesController#create as HTML
+  Parameters: {"inquiry"=>{"name"=>"", "nickname"=>"", "subject"=>"billing", "message"=>"", "email"=>""}, "commit"=>"Send Message", "utf8"=>"\342\234\223"}
+Rendered shared/_error_messages.html.erb (6.3ms)
+Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "assets";
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "categories";[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "categories_posts";
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "comments";[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "inquiries";
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "posts";[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "users";

@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "blog" %>
+
+<div id="column1">
+
+  <h2><%= @post.title %></h2>
+
+  <div id="post">
+    <%= textilize @post.body %>
+  </div>
+
+  <hr/>
+
+  <h3>Comments</h3>
+
+  <div id="comments">
+  <% if @post.comments.any? %>
+    <%= render :partial => @post.comments %>
+  <% else %>
+    <p>Nobody commented this post yet.</p>
+  <% end %>
+  </div>
+
+  <div id="comment_form">
+    <%= render "comments/form", :post => @post, :comment => Comment.new %>
+  </div>
+</div>
+
+<%= render "sidebar" %>

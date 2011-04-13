@@ -1,0 +1,22 @@
+<%= form_for [:admin, @change] do |f| %>
+  <%= error_messages_for @change %>
+
+  <div class="field">
+    <%= f.select :category, Change::CATEGORIES, :prompt => "Select the category" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :entry, :placeholder => "entry" %>
+  </div>
+
+  <div class="field">
+    <%= f.date_select :released_on %>
+  </div>
+
+  <hr class="thick" />
+
+  <p>
+    <%= f.submit :class => "button" %> <%= link_to t("cancel"), admin_changes_path %>
+  </p>
+
+<% end %>

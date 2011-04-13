@@ -1,0 +1,30 @@
+<h2>Edit Comment for <%= @post.title %></h2>
+
+<div id="comment_form">
+
+  <%= form_for [ :admin, @post, @comment ] do |f| %>
+    <%= error_messages_for @comment %>
+
+    <div class="field">
+      <%= f.text_field :author, :placeholder => "author" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :email, :placeholder => "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :url, :placeholder => "url" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_area :body, :placeholder => "message", :rows => 10, :cols => 90 %>
+    </div>
+
+    <p>
+      <%= f.submit :class => "button" %> <%= link_to t("cancel"), admin_post_comments_path(@post) %>
+    </p>
+
+  <% end %>
+
+</div>

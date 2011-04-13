@@ -1,0 +1,27 @@
+<h2>Comments for Post <%= @post.title %></h2>
+
+<div id="comments">
+  <ul class="list">
+    <% @comments.each do |comment| %>
+      <%= content_tag_for :li, comment, :class => cycle(:odd, :even) do %>
+
+        <blockquote>
+          <%= simple_format %[" #{h(comment.body)} "] %>
+        </blockquote>
+
+        <span class="meta">
+          <cite>
+            <span class="name">— <%= comment_author(comment.author, comment.url) %></span>
+            <span class="date">, <%= time_ago_in_words comment.created_at %> ago</span>
+          </cite>
+
+          <%= link_to "Edit", [:edit, :admin, comment.post, comment] %> |
+          <%= toggle_read(comment) %> |
+          <%= link_to "Destroy", [:admin, comment.post, comment], :confirm => t("confirm"), :method => :delete, :class => "red" %>
+
+        </span>
+
+      <% end %>
+    <% end %>
+  </ul>
+</div>
