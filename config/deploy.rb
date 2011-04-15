@@ -1,10 +1,10 @@
 # APP SETTINGS
-set :application, "producer"
-set :ip_address , "208.88.125.20"
+set :application, "voxmark"
+set :ip_address , "50.22.221.95"
 
 # GIT SETTINGS
 set :scm, :git
-set :repository,  "git@github.com:danielvlopes/producer.git"
+set :repository,  "git@github.com:rpontes/voxmark.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
@@ -25,7 +25,7 @@ role :db,  ip_address, :primary => true
 after 'deploy:update_code' do
   db.symlink
   assets.symlink
-  cron.update  
+  cron.update
 end
 
 # TASKS
@@ -74,3 +74,4 @@ namespace :cron do
     run "cd #{current_path} && whenever --update-crontab #{application}"
   end
 end
+

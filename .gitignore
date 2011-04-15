@@ -1,1 +1,7 @@
 config/database.yml
+bundle
+db/*.sqlite3
+log/*.log
+tmp/
+public/system/**/*
+
