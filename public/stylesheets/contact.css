@@ -1,0 +1,12 @@
+#column1 {
+  width: 500px;
+  float: left;
+  margin-bottom: 50px;
+}
+
+#column2 {
+  width: 400px;
+  float: right;
+  margin: 0 0 50px;
+}
+
