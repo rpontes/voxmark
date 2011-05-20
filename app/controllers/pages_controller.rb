@@ -14,4 +14,13 @@ class PagesController < ApplicationController
     menu_item :prices
   end
 
+  def company
+    menu_item :company
+  end
+
+  def services
+    menu_item :services
+  end
+
 end
+

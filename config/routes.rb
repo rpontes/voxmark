@@ -29,9 +29,12 @@ Producer::Application.routes.draw do
     resources :comments
   end
 
-  match '/home'   => "pages#index",  :as => :home
-  match '/prices' => "pages#prices", :as => :prices
-  match '/tour'   => "pages#tour",   :as => :tour
+  match '/home'     => "pages#index",  :as => :home
+  match '/prices'   => "pages#prices", :as => :prices
+  match '/tour'     => "pages#tour",   :as => :tour
+  match '/company'  => "pages#company", :as => :company
+  match '/services' => "pages#services", :as => :services
 
   get "pages/index"
 end
+

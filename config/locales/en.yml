@@ -24,9 +24,8 @@ en:
   contacts:
     new:
       subjects:
-        signup: I have a question before I sign up
-        request: I want to request a feature
-        billing: I have a billing question
-        confused: I'm confused about how something works
-        broken: I think something is broken
-        other: Other
+        question: I have a question before I sign up
+        protest: I want to request a feature
+        suggestion: I have a billing question
+        other: Outro
+

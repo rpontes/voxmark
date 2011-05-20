@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <head>
-  <title>Producer</title>
+  <title>VOXMARK - Assessoria e Consultoria em Propriedade Intelectual</title>
   <%= stylesheet_link_tag "application", "scaffold" %>
   <%= javascript_include_tag "vendor/jquery", "vendor/jquery-ui", "vendor/jquery.placeholder", "rails" %>
   <%= csrf_meta_tag %>
@@ -33,25 +34,25 @@
 
     <div id="header">
       <div id="logo">
-        <%= image_tag "logo_header.png", :class => "middle" %>
+        <%= link_to image_tag("logo_header.png", :class => "middle"), "home" %>
       </div>
 
       <div id="main-nav">
         <%= menu do |m| %>
-          <%= m.home root_path do %>
-            HOME <br/><span>DISCOVER OUR <br/> AWESOME PRODUCT</span>
+          <%= m.company company_path do %>
+            Empresa
           <% end %>
 
-          <%= m.tour tour_path do %>
-            Quem Somos <br/><span>DISCOVER WHY IT'LL <br/> MAKE YOUR LIFE BETTER</span>
+          <%= m.services services_path do %>
+            Serviços
           <% end %>
 
           <%= m.posts posts_path do %>
-            Nosso Blog <br/><span>NEWS, TIPS AND OUR <br/> RANDOM THOUGHTS</span>
+            Blog
           <% end %>
 
           <%= m.contact new_inquiry_path do %>
-            Contato <br/><span>YOU'RE NOT ALONE <br/> GET IN TOUCH</span>
+            Contato
           <% end %>
 
         <% end %>
@@ -68,10 +69,16 @@
     <div id="footer">
 
       <div id="info">
+        <div id="dados">
+        <h3>VOXMARK - Assessoria e Consultoria em Propriedade Intelectual - 2011 © Todos os direitos reservados</br>
+        R. Pres. Nereu Ramos, 19 - Sala 405 - Centro - CEP: 88015-010 - Florianópolis - SC - Fone/Fax: +55 48 3322-2599</h3>
+        </div>
+        <div id="redes_sociais"
         <p>
           <%= link_to image_tag("logo_facebook.png"), "http://www.facebook.com/voxmarkmp" %>
           <%= link_to image_tag("logo_twitter.png"), "http://twitter.com/voxmark" %>
         </p>
+        </div>
       </div>
     </div>
   </div>

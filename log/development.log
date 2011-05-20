@@ -12020,3 +12020,1564 @@ Started GET "/" for 127.0.0.1 at Tue Apr 12 23:51:57 -0300 2011
   Processing by PagesController#index as HTML
 Rendered pages/index.pt-BR.html.erb within layouts/application (13.6ms)
 Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon May 16 23:20:24 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 22:56:53 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 37ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:03:10 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:04:39 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:05:00 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:05:49 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:06:54 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:11:51 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:12:31 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:13:01 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tour" for 127.0.0.1 at Tue May 17 23:16:10 -0300 2011
+  Processing by PagesController#tour as HTML
+Rendered pages/tour.html.erb within layouts/application (150.9ms)
+Completed 200 OK in 183ms (Views: 181.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tour" for 127.0.0.1 at Tue May 17 23:23:23 -0300 2011
+  Processing by PagesController#tour as HTML
+Rendered pages/tour.html.erb within layouts/application (1059.4ms)
+Completed   in 2012ms
+
+ActionView::Template::Error (undefined local variable or method `company_path' for #<#<Class:0xb0d00ec>:0xb0cd810>):
+    39: 
+    40:       <div id="main-nav">
+    41:         <%= menu do |m| %>
+    42:           <%= m.company company_path do %>
+    43:             Empresa
+    44:           <% end %>
+    45: 
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb__29469045_92688980_0'
+  app/views/layouts/application.html.erb:41:in `_app_views_layouts_application_html_erb__29469045_92688980_0'
+
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (564.4ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (1624.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:25:39 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:25:42 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:26:33 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (97.7ms)
+Completed 200 OK in 113ms (Views: 112.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:27:02 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:27:50 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:31:23 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:32:10 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:32:35 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Tue May 17 23:34:44 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:36:26 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:38:36 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:40:00 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:41:41 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 47ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:43:21 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:43:28 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:44:39 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:45:57 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:46:51 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:47:59 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:48:44 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:52:32 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:53:13 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:54:11 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:54:55 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:56:18 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:56:26 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:57:22 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue May 17 23:57:58 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 00:40:15 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 00:43:07 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (1000.3ms)
+Completed   in 1993ms
+
+ActionView::Template::Error (undefined local variable or method `servicos_path' for #<#<Class:0xad3453c>:0xad33628>):
+    43:             Empresa
+    44:           <% end %>
+    45: 
+    46:           <%= m.servicos servicos_path do %>
+    47:             Serviços
+    48:           <% end %>
+    49: 
+  app/views/layouts/application.html.erb:46:in `_app_views_layouts_application_html_erb__29469045_90803520_0'
+  app/views/layouts/application.html.erb:41:in `_app_views_layouts_application_html_erb__29469045_90803520_0'
+
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (574.9ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (1622.3ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 00:43:50 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 130ms (Views: 129.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:43:53 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:44:53 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:45:13 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:52:52 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:53:56 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:58:48 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:59:00 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:59:08 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 00:59:24 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 01:00:33 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 01:07:38 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 01:11:44 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-18 04:11:45.323924') ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered posts/_sidebar.html.erb (8.9ms)
+Rendered posts/index.html.erb within layouts/application (49.6ms)
+Completed 200 OK in 386ms (Views: 57.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 01:11:48 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:11:49 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 01:12:36 -0300 2011
+  Processing by InquiriesController#new as HTML
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered shared/_error_messages.html.erb (1.9ms)
+Rendered inquiries/new.html.erb within layouts/application (105.3ms)
+Completed 200 OK in 169ms (Views: 120.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 01:13:40 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.9ms)
+Rendered inquiries/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 36ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 01:14:06 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.9ms)
+Rendered inquiries/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 87ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 01:14:17 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.8ms)
+Rendered inquiries/new.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 82ms (Views: 54.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 01:14:39 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.9ms)
+Rendered inquiries/new.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 74ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:20:23 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 01:20:26 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:20:27 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 01:20:29 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-18 04:20:29.149710') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (8.1ms)
+Rendered posts/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 89ms (Views: 34.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 01:20:31 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.8ms)
+Rendered inquiries/new.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 89ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:20:33 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:24:18 -0300 2011
+  Processing by PagesController#company as HTML
+ERROR: compiling _app_views_layouts_application_html_erb__29469045_93033760_0 RAISED compile error
+/home/ricardo/desenvolvimento/projects/voxmark/app/views/layouts/application.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd= ( link_to "home" image_tag ("logo_header.png", :class =>...
+                              ^
+Function body:           def _app_views_layouts_application_html_erb__29469045_93033760_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "layouts/application";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<head>
+  <title>VOXMARK - Registro Marcas e Patentes</title>
+  ');@output_buffer.append= ( stylesheet_link_tag "application", "scaffold" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( javascript_include_tag "vendor/jquery", "vendor/jquery-ui", "vendor/jquery.placeholder", "rails" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( csrf_meta_tag );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</head>
+<body>
+
+  <!--[if lte IE 7]>
+  <script defer type="text/javascript" src="javascripts/vendor/pngfix.js"></script>
+
+  <div class="notSupportedBrowser important">
+    <p>
+      <strong>Seu navegador está desatualizado. Baixe a nova versão
+      ');@output_buffer.append= ( link_to image_tag("ua_ie.jpg", :class => "middle"),
+            "http://www.microsoft.com/windows/internet-explorer", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ou escolha outro suportado:</strong>
+      ');@output_buffer.append= ( link_to image_tag("ua_ff.jpg", :class => "middle"), "http://www.mozilla.com/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ');@output_buffer.append= ( link_to image_tag("ua_sf.jpg", :class => "middle"), "http://www.apple.com/safari/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ');@output_buffer.append= ( link_to image_tag("ua_ch.jpg", :class => "middle"), "http://www.google.com/chrome/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ');@output_buffer.append= ( link_to image_tag("ua_op.jpg", :class => "middle"), "http://www.opera.com/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </p>
+  </div>
+  <![endif]-->
+
+  <div id="user-bar">
+    ');@output_buffer.append= ( link_to "admin panel", admin_root_path, :class => "button" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+
+  <div id="wrapper">
+
+    <div id="header">
+      <div id="logo">
+        ');@output_buffer.append= ( link_to "home" image_tag ("logo_header.png", :class => "middle") );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      </div>
+
+      <div id="main-nav">
+        ');@output_buffer.append=  menu do |m| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append=  m.company company_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Empresa
+');           end 
+@output_buffer.safe_concat('
+          ');@output_buffer.append=  m.services services_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Serviços
+');           end 
+@output_buffer.safe_concat('
+          ');@output_buffer.append=  m.posts posts_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Notícias
+');           end 
+@output_buffer.safe_concat('
+          ');@output_buffer.append=  m.contact new_inquiry_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Contato
+');           end 
+@output_buffer.safe_concat('
+');         end 
+@output_buffer.safe_concat('      </div>
+    </div>
+
+    <div id="content">
+
+      ');@output_buffer.append= ( flash_messages );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+      ');@output_buffer.append= ( yield );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </div>
+
+    <div id="footer">
+
+      <div id="info">
+        <div id="dados">
+        <h3>VOXMARK - Assessoria e Consultoria em Propriedade Intelectual - 2011 © Todos os direitos reservados</br>
+        R. Pres. Nereu Ramos, 19 - Sala 405 - Centro - CEP: 88015-010 - Florianópolis - SC - Fone/Fax: +55 48 3322-2599</h3>
+        </div>
+        <div id="redes_sociais"
+        <p>
+          ');@output_buffer.append= ( link_to image_tag("logo_facebook.png"), "http://www.facebook.com/voxmarkmp" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( link_to image_tag("logo_twitter.png"), "http://twitter.com/voxmark" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/ricardo/desenvolvimento/projects/voxmark/app/views/layouts/application.html.erb:92:in `compile'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/layouts.rb:80:in `_render_layout'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:62:in `_render_template'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:440:in `_run__367793087__process_action__438339103__callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `send'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `send'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/lock.rb:11:in `synchronize'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/handler/webrick.rb:13:in `run'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/server.rb:213:in `start'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands/server.rb:65:in `start'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands.rb:30
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands.rb:27:in `tap'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered pages/company.html.erb within layouts/application (2.7ms)
+Completed   in 10ms
+
+ActionView::Template::Error (compile error
+/home/ricardo/desenvolvimento/projects/voxmark/app/views/layouts/application.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd= ( link_to "home" image_tag ("logo_header.png", :class =>...
+                              ^):
+    34: 
+    35:     <div id="header">
+    36:       <div id="logo">
+    37:         <%= link_to "home" image_tag ("logo_header.png", :class => "middle") %>
+    38:       </div>
+    39: 
+    40:       <div id="main-nav">
+  app/views/layouts/application.html.erb:92:in `compile'
+
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (715.6ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (728.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:24:36 -0300 2011
+  Processing by PagesController#company as HTML
+ERROR: compiling _app_views_layouts_application_html_erb__29469045_92935570_0 RAISED compile error
+/home/ricardo/desenvolvimento/projects/voxmark/app/views/layouts/application.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd= ( link_to "home" image_tag "logo_header.png", :class => ...
+                              ^
+Function body:           def _app_views_layouts_application_html_erb__29469045_92935570_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "layouts/application";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<head>
+  <title>VOXMARK - Registro Marcas e Patentes</title>
+  ');@output_buffer.append= ( stylesheet_link_tag "application", "scaffold" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( javascript_include_tag "vendor/jquery", "vendor/jquery-ui", "vendor/jquery.placeholder", "rails" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( csrf_meta_tag );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</head>
+<body>
+
+  <!--[if lte IE 7]>
+  <script defer type="text/javascript" src="javascripts/vendor/pngfix.js"></script>
+
+  <div class="notSupportedBrowser important">
+    <p>
+      <strong>Seu navegador está desatualizado. Baixe a nova versão
+      ');@output_buffer.append= ( link_to image_tag("ua_ie.jpg", :class => "middle"),
+            "http://www.microsoft.com/windows/internet-explorer", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ou escolha outro suportado:</strong>
+      ');@output_buffer.append= ( link_to image_tag("ua_ff.jpg", :class => "middle"), "http://www.mozilla.com/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ');@output_buffer.append= ( link_to image_tag("ua_sf.jpg", :class => "middle"), "http://www.apple.com/safari/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ');@output_buffer.append= ( link_to image_tag("ua_ch.jpg", :class => "middle"), "http://www.google.com/chrome/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      ');@output_buffer.append= ( link_to image_tag("ua_op.jpg", :class => "middle"), "http://www.opera.com/", :target => "_blank" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </p>
+  </div>
+  <![endif]-->
+
+  <div id="user-bar">
+    ');@output_buffer.append= ( link_to "admin panel", admin_root_path, :class => "button" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+
+  <div id="wrapper">
+
+    <div id="header">
+      <div id="logo">
+        ');@output_buffer.append= ( link_to "home" image_tag "logo_header.png", :class => "middle" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('      </div>
+
+      <div id="main-nav">
+        ');@output_buffer.append=  menu do |m| @output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append=  m.company company_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Empresa
+');           end 
+@output_buffer.safe_concat('
+          ');@output_buffer.append=  m.services services_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Serviços
+');           end 
+@output_buffer.safe_concat('
+          ');@output_buffer.append=  m.posts posts_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Notícias
+');           end 
+@output_buffer.safe_concat('
+          ');@output_buffer.append=  m.contact new_inquiry_path do @output_buffer.safe_concat('
+');@output_buffer.safe_concat('            Contato
+');           end 
+@output_buffer.safe_concat('
+');         end 
+@output_buffer.safe_concat('      </div>
+    </div>
+
+    <div id="content">
+
+      ');@output_buffer.append= ( flash_messages );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+      ');@output_buffer.append= ( yield );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('    </div>
+
+    <div id="footer">
+
+      <div id="info">
+        <div id="dados">
+        <h3>VOXMARK - Assessoria e Consultoria em Propriedade Intelectual - 2011 © Todos os direitos reservados</br>
+        R. Pres. Nereu Ramos, 19 - Sala 405 - Centro - CEP: 88015-010 - Florianópolis - SC - Fone/Fax: +55 48 3322-2599</h3>
+        </div>
+        <div id="redes_sociais"
+        <p>
+          ');@output_buffer.append= ( link_to image_tag("logo_facebook.png"), "http://www.facebook.com/voxmarkmp" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('          ');@output_buffer.append= ( link_to image_tag("logo_twitter.png"), "http://twitter.com/voxmark" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/ricardo/desenvolvimento/projects/voxmark/app/views/layouts/application.html.erb:92:in `compile'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/layouts.rb:80:in `_render_layout'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:62:in `_render_template'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:440:in `_run__367793087__process_action__438339103__callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `send'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `send'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `action'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/warden-1.0.3/lib/warden/manager.rb:35:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/warden-1.0.3/lib/warden/manager.rb:34:in `catch'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/warden-1.0.3/lib/warden/manager.rb:34:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/lock.rb:11:in `synchronize'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/home/ricardo/.rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/handler/webrick.rb:13:in `run'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.2/lib/rack/server.rb:213:in `start'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands/server.rb:65:in `start'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands.rb:30
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands.rb:27:in `tap'
+/home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.5/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered pages/company.html.erb within layouts/application (6.4ms)
+Completed   in 24ms
+
+ActionView::Template::Error (compile error
+/home/ricardo/desenvolvimento/projects/voxmark/app/views/layouts/application.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd= ( link_to "home" image_tag "logo_header.png", :class => ...
+                              ^):
+    34: 
+    35:     <div id="header">
+    36:       <div id="logo">
+    37:         <%= link_to "home" image_tag "logo_header.png", :class => "middle" %>
+    38:       </div>
+    39: 
+    40:       <div id="main-nav">
+  app/views/layouts/application.html.erb:92:in `compile'
+
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (717.6ms)
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (736.4ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:29:04 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at Wed May 18 01:29:07 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (172.1ms)
+Completed 200 OK in 189ms (Views: 186.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 01:29:10 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Wed May 18 01:29:11 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at Wed May 18 01:29:12 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110317230504)
+Migrating to CreatePosts (20110317235426)
+Migrating to CreateComments (20110321230843)
+Migrating to ChangeExcerptInPosts (20110321233243)
+Migrating to AddAuthorIdToPost (20110322000535)
+Migrating to CreateCategories (20110322001948)
+Migrating to CreateCategoriesPosts (20110322002148)
+Migrating to AddDraftAndPermalinkToPost (20110323225057)
+Migrating to AddPublishedAtToPost (20110323235251)
+Migrating to RenamePermalinkToSlugInPost (20110323235608)
+Migrating to CreateAssets (20110328222652)
+Migrating to AddAttachmentDocumentToAsset (20110328222747)
+Migrating to CreateInquiries (20110330222325)
+Migrating to AddReadToComments (20110405012836)
+Migrating to CreateChanges (20110405013633)
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("assets")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories_posts")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("changes")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("comments")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("inquiries")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("posts")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at Wed May 18 22:43:20 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 61ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed May 18 22:43:32 -0300 2011
+  Processing by Admin::DashboardController#index as HTML
+Completed   in 13ms
+
+
+Started GET "/admin/users/sign_in" for 127.0.0.1 at Wed May 18 22:43:33 -0300 2011
+  Processing by Admin::SessionsController#new as HTML
+Rendered admin/sessions/new.html.erb within layouts/admin (9.0ms)
+Completed 200 OK in 42ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/users/sign_in" for 127.0.0.1 at Wed May 18 22:46:36 -0300 2011
+  Processing by Admin::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"KIio5VwudGNkgOp+Ed/ZhtU1uzp66jIz9kmJ/A0ou4Y=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"admin@cursorails.net"}}
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'admin@cursorails.net' LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2011-05-19 01:46:36.475831', "updated_at" = '2011-05-19 01:46:36.476640', "last_sign_in_at" = '2011-04-13 00:42:24.103696', "sign_in_count" = 5 WHERE "users"."id" = 1[0m
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 465ms
+
+
+Started GET "/admin" for 127.0.0.1 at Wed May 18 22:46:36 -0300 2011
+  Processing by Admin::DashboardController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."read" = 'f'[0m
+  [1m[35mInquiry Load (0.5ms)[0m  SELECT "inquiries".* FROM "inquiries" WHERE "inquiries"."open" = 't'
+Rendered admin/dashboard/index.html.erb within layouts/admin (17.7ms)
+Completed 200 OK in 177ms (Views: 29.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/posts" for 127.0.0.1 at Wed May 18 22:46:44 -0300 2011
+  Processing by Admin::PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/posts/index.html.erb within layouts/admin (20.3ms)
+Completed 200 OK in 53ms (Views: 26.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/assets" for 127.0.0.1 at Wed May 18 22:46:46 -0300 2011
+  Processing by Admin::AssetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAsset Load (1.0ms)[0m  SELECT "assets".* FROM "assets" ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Rendered admin/assets/index.html.erb within layouts/admin (54.6ms)
+Completed 200 OK in 98ms (Views: 60.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/changes" for 127.0.0.1 at Wed May 18 22:46:47 -0300 2011
+  Processing by Admin::ChangesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mChange Load (0.4ms)[0m  SELECT "changes".* FROM "changes" ORDER BY released_on DESC
+Rendered admin/changes/index.html.erb within layouts/admin (12.9ms)
+Completed 200 OK in 52ms (Views: 18.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/inquiries" for 127.0.0.1 at Wed May 18 22:46:48 -0300 2011
+  Processing by Admin::InquiriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "inquiries" WHERE "inquiries"."open" = 't'
+Rendered admin/inquiries/_inquiries.html.erb (2.6ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "inquiries" WHERE "inquiries"."open" = 'f'[0m
+Rendered admin/inquiries/_inquiries.html.erb (1.9ms)
+Rendered admin/inquiries/index.html.erb within layouts/admin (12.9ms)
+Completed 200 OK in 141ms (Views: 18.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at Wed May 18 22:46:51 -0300 2011
+  Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered admin/users/index.html.erb within layouts/admin (7.9ms)
+Completed 200 OK in 39ms (Views: 13.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Wed May 18 22:46:56 -0300 2011
+  Processing by Admin::DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."read" = 'f'[0m
+  [1m[35mInquiry Load (0.2ms)[0m  SELECT "inquiries".* FROM "inquiries" WHERE "inquiries"."open" = 't'
+Rendered admin/dashboard/index.html.erb within layouts/admin (7.5ms)
+Completed 200 OK in 57ms (Views: 12.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users/sign_out" for 127.0.0.1 at Wed May 18 22:46:59 -0300 2011
+  Processing by Admin::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 80ms
+
+
+Started GET "/" for 127.0.0.1 at Wed May 18 22:46:59 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 22:47:00 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.9ms)
+Rendered inquiries/new.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 58ms (Views: 48.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 22:57:08 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 40ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:00:22 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 66ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:00:25 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.2ms)
+Rendered inquiries/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:00:56 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.0ms)
+Rendered inquiries/new.html.erb within layouts/application (119.8ms)
+Completed 200 OK in 137ms (Views: 125.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:00:58 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 57ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:01:01 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 33ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:02:31 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 41ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:02:55 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 52ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:02:56 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.9ms)
+Rendered inquiries/new.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 78ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:04:34 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 40ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:04:42 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 145ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:08:03 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:08:03.429475') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.5ms)
+Rendered posts/index.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 106ms (Views: 75.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:11:22 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 33ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:12:49 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 167ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Wed May 18 23:12:51 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:12:52 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.9ms)
+Rendered inquiries/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 34ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/home" for 127.0.0.1 at Wed May 18 23:12:56 -0300 2011
+
+ActionController::RoutingError (No route matches "/contact/home"):
+  
+
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.3ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:13:55 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 40ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:14:06 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 34ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:14:19 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:14:19.981122') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.7ms)
+Rendered posts/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 46ms (Views: 32.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:17:08 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:17:08.404386') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.7ms)
+Rendered posts/index.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 46ms (Views: 32.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:17:26 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:17:27.085267') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.6ms)
+Rendered posts/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 136ms (Views: 33.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:18:54 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:18:54.806532') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.5ms)
+Rendered posts/index.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 45ms (Views: 32.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:19:00 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:19:00.196792') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.7ms)
+Rendered posts/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 48ms (Views: 33.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:19:33 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:19:33.645725') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.8ms)
+Rendered posts/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 46ms (Views: 33.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:21:09 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:21:09.881898') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.7ms)
+Rendered posts/index.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 46ms (Views: 32.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:22:51 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:22:52.069585') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.6ms)
+Rendered posts/index.html.erb within layouts/application (112.5ms)
+Completed 200 OK in 139ms (Views: 118.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:23:05 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:23:05.317167') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.6ms)
+Rendered posts/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 77ms (Views: 46.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:24:19 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:24:20.106411') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.8ms)
+Rendered posts/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 46ms (Views: 33.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:24:35 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:24:35.605334') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.7ms)
+Rendered posts/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 46ms (Views: 32.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:26:26 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 34ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed May 18 23:27:06 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 02:27:07.082669') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.6ms)
+Rendered posts/index.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 45ms (Views: 32.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:30:25 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 34ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:31:54 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 122ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:36:37 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.9ms)
+Rendered inquiries/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 53ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Wed May 18 23:38:37 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 36ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:35:26 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 34ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:39:34 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (2.0ms)
+Rendered inquiries/_sidebar.html.erb (0.3ms)
+Rendered inquiries/new.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 75ms (Views: 51.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:40:06 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.4ms)
+Rendered inquiries/new.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 68ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu May 19 00:41:26 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 03:41:26.459869') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.7ms)
+Rendered posts/index.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 46ms (Views: 32.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:41:33 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.4ms)
+Rendered inquiries/new.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 153ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:41:49 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.8ms)
+Rendered inquiries/_sidebar.html.erb (0.4ms)
+Rendered inquiries/new.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 75ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:42:28 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.4ms)
+Rendered inquiries/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 36ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:43:57 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.4ms)
+Rendered inquiries/new.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 38ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 00:44:12 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (1.8ms)
+Rendered inquiries/_sidebar.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 76ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu May 19 01:01:15 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 01:01:17 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.4ms)
+Rendered inquiries/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 36ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 01:08:27 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 41ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/home" for 127.0.0.1 at Thu May 19 01:08:41 -0300 2011
+
+ActionController::RoutingError (No route matches "/contact/home"):
+  
+
+Rendered /home/ricardo/.rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at Thu May 19 01:08:45 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at Thu May 19 01:08:47 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu May 19 01:08:49 -0300 2011
+  Processing by PostsController#index as HTML
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE (draft = 'f' AND published_at < '2011-05-19 04:08:49.232586') ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+Rendered posts/_sidebar.html.erb (7.9ms)
+Rendered posts/index.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 81ms (Views: 49.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at Thu May 19 01:08:50 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Thu May 19 01:08:52 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at Thu May 19 01:08:53 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 01:10:44 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.9ms)
+Rendered inquiries/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 128ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu May 19 01:11:13 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact/new" for 127.0.0.1 at Thu May 19 01:11:18 -0300 2011
+  Processing by InquiriesController#new as HTML
+Rendered shared/_error_messages.html.erb (0.8ms)
+Rendered inquiries/_sidebar.html.erb (0.8ms)
+Rendered inquiries/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 37ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/services" for 127.0.0.1 at Thu May 19 01:11:26 -0300 2011
+  Processing by PagesController#services as HTML
+Rendered pages/services.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Thu May 19 01:11:42 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/company" for 127.0.0.1 at Thu May 19 01:52:57 -0300 2011
+  Processing by PagesController#company as HTML
+Rendered pages/company.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at Thu May 19 01:53:01 -0300 2011
+  Processing by PagesController#index as HTML
+Rendered pages/index.pt-BR.html.erb within layouts/application (92.9ms)
+Completed 200 OK in 100ms (Views: 99.1ms | ActiveRecord: 0.0ms)

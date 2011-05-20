@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "contact" %>
+<div id="column1">
 <%= form_for @inquiry do |f| %>
   <%= error_messages_for @inquiry %>
 
@@ -6,7 +8,7 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :name, :placeholder => "your name" %>
+    <%= f.text_field :name, :placeholder => "nome" %>
   </div>
 
   <div class="field">
@@ -14,10 +16,14 @@
   </div>
 
   <div class="field">
-    <%= f.text_area :message, :placeholder => "Explain the problem/question in detail" %>
+    <%= f.text_area :message, :placeholder => "escreva aqui sua mensagem" %>
   </div>
-  
+
   <%= f.captcha %>
-    
-  <p><%= f.submit  "Send Message", :class => "button" %></p>
+
+  <p><%= f.submit  "Envie", :class => "button" %></p>
 <% end %>
+</div>
+
+<%= render "sidebar" %>
+

@@ -9,17 +9,18 @@
       <div id="post">
         <%= textilize post.excerpt %>
 
-        <p><%= link_to "continue ...", post %></p>
+        <p><%= link_to "continua", post %></p>
       </div>
     <%- end -%>
 
   <%- else -%>
-    <h3>Zero posts founded.</h3>
+    <h3>Nenhum post encontrado.</h3>
   <%- end -%>
-  
+
   <div class="left">
     <%= will_paginate @posts %>
-  </div>  
+  </div>
 </div>
 
 <%= render "sidebar" %>
+

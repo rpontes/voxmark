@@ -4,7 +4,7 @@ class InquiryMailer < ActionMailer::Base
   def notification(inquiry)
     @inquiry = inquiry
 
-    mail :reply_to => @inquiry.email, :subject => "New inquiry"
+    mail :reply_to => @inquiry.email, :subject => "Nova mensagem"
   end
 end
 

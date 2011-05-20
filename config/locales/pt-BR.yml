@@ -20,6 +20,14 @@
         author: "Post por:"
         media: "Arquivos"
 
+  contacts:
+    new:
+      subjects:
+        question: I have a question before I sign up
+        protest: I want to request a feature
+        suggestion: I have a billing question
+        other: Outro
+
   date:
     formats:
       default: "%d/%m/%Y"
@@ -236,3 +244,4 @@
         slug: "Url customizada"
         author: "Autor"
         draft: "Rascunho"
+

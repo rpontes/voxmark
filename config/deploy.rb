@@ -25,7 +25,7 @@ role :db,  ip_address, :primary => true
 after 'deploy:update_code' do
   db.symlink
   assets.symlink
-  cron.update
+#  cron.update
 end
 
 # TASKS

@@ -108,7 +108,7 @@ div#footer {
 div#footer #info {
   padding: 0;
   margin: 0;
-  float:right;
+/*  float:left; */
   overflow:hidden;
 }
 
@@ -116,6 +116,20 @@ div#footer #footer-nav {
   margin-top: 10px;
   overflow:hidden;
   float:left;
+}
+
+div#footer #dados {
+  float: left;
+  text-align: left;
+}
+
+div#footer #dados h3{
+  font-size: 10px;
+}
+
+div#footer #redes_sociais {
+  float: right;
+  margin-top: 10px;
 }
 
 /* menu */
