@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Producer</title>
+  <title>VOXMARK - Assessoria e Consultoria em Propriedade Intelectual</title>
   <%= stylesheet_link_tag "admin", "scaffold" %>
   <%= javascript_include_tag "vendor/jquery", "vendor/jquery-ui", "rails" %>
   <%= csrf_meta_tag %>
@@ -21,7 +21,7 @@
           <%= m.users 'Users', admin_users_path %>
         <% end %>
       </div>
-      
+
       <div id="user-bar">
         <%= link_to "Logout", destroy_user_session_path %>
       </div>
@@ -41,3 +41,4 @@
 <%= yield :bottom %>
 </body>
 </html>
+

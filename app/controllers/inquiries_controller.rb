@@ -9,6 +9,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.new(params[:inquiry])
 
     if @inquiry.save
+      InquiryMailer.notification(@inquiry).deliver
       flash[:notice] = 'Your messages was successfully sent.'
       redirect_to new_inquiry_path
     else
@@ -17,3 +18,4 @@ class InquiriesController < ApplicationController
   end
 
 end
+
